@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Node;
+use App\Models\Type;
 use App\Models\Category;
 use App\Models\Material;
 use Spatie\Sluggable\HasSlug;
@@ -29,9 +31,14 @@ class SubCategory extends Model
         return $this->belongsTo(Category::class);
     }
 
-    public function materials(): HasMany
+    public function types(): HasMany
     {
-        return $this->hasMany(Material::class);
+        return $this->hasMany(Type::class);
+    }
+
+    public function nodes(): HasMany
+    {
+        return $this->hasMany(Node::class);
     }
     
 }

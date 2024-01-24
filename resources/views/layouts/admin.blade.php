@@ -20,69 +20,91 @@
     </head>
     <body>
         <div class="h-screen overflow-hidden bg-gray-100 w-full flex">
-            <aside class="w-[17%] bg-white border-r h-full">
+            <aside class="w-[17%] bg-white border-r h-full overflow-y-auto pb-3">
                 <div class="header px-6 py-4">
                     <button class="rounded-full bg-gray-900 w-10 h-10 mb-5 border-4 text-white flex items-center justify-center">A</button>
                     <h4 class="text-zinc-500 text-sm">Store</h4>
                     <h4 class="text-sm">TFT Store</h4>
                 </div>
-                <ul class="mt-5 px-3">
-                    <li>
-                        <x-side-link href="{{ route('product.index') }}" wire:navigate :active="request()->routeIs('product.index')">
-                            <x-icons.product class="w-5 h-5" />
-                            <span class="text-sm">Products</span>
-                        </x-side-link>
-                    </li>
-                    <li>
-                        <x-side-link href="{{ route('category.index') }}" wire:navigate :active="request()->routeIs('category.index')">
+                <ul class="mt-5">
+                    <li class="px-3">
+                        <x-side-link href="{{ route('order.index') }}" :active="request()->routeIs('order.index')">
                             <x-icons.order class="w-5 h-5" />
                             <span class="text-sm">Orders</span>
                         </x-side-link>
                     </li>
-                    <li>
-                        <x-side-link href="{{ route('category.index') }}" wire:navigate :active="request()->routeIs('category.index')">
+                    <li class="px-3">
+                        <x-side-link href="{{ route('item.index') }}" :active="request()->routeIs('item.index')">
+                            <x-icons.product class="w-5 h-5" />
+                            <span class="text-sm">Items</span>
+                        </x-side-link>
+                    </li>
+                    <hr class="my-2"/>
+                    <li class="px-3">
+                        <x-side-link href="{{ route('category.index') }}" :active="request()->routeIs('category.index')">
                             <x-icons.category class="w-5 h-5" />
                             <span class="text-sm">Categories</span>
                         </x-side-link>
                     </li>
-                    <li>
-                        <x-side-link href="{{ route('sub_category.index') }}" wire:navigate :active="request()->routeIs('sub_category.index')">
+                    <li class="px-3">
+                        <x-side-link href="{{ route('sub_category.index') }}" :active="request()->routeIs('sub_category.index')">
                             <x-icons.subcategory class="w-5 h-5" />
                             <span class="text-sm">Sub-Category</span>
                         </x-side-link>
                     </li>
-                    <li>
-                        <x-side-link href="{{ route('material.index') }}" wire:navigate :active="request()->routeIs('material.index')">
-                            <x-icons.material class="w-5 h-5" />
-                            <span class="text-sm">Materials</span>
+                    <li class="px-3">
+                        <x-side-link href="{{ route('type.index') }}" :active="request()->routeIs('type.index')">
+                            <x-icons.types class="w-5 h-5" />
+                            <span class="text-sm">Product Type</span>
                         </x-side-link>
                     </li>
-                    <li>
-                        <x-side-link href="{{ route('category.index') }}" wire:navigate :active="request()->routeIs('category.index')">
+                    <hr class="my-2"/>
+                    <li class="px-3">
+                        <x-side-link href="{{ route('node.index') }}" :active="request()->routeIs('node.index')">
+                            <x-icons.node class="w-5 h-5" />
+                            <span class="text-sm">Browse Node</span>
+                        </x-side-link>
+                    </li>
+                    <hr class="my-2"/>
+                    <li class="px-3">
+                        <x-side-link href="{{ route('brand.index') }}" :active="request()->routeIs('brand.index')">
                             <x-icons.brand class="w-5 h-5" />
                             <span class="text-sm">Brands</span>
                         </x-side-link>
                     </li>
-                    <li>
-                        <x-side-link href="{{ route('category.index') }}" wire:navigate :active="request()->routeIs('category.index')">
+                    <li class="px-3">
+                        <x-side-link href="{{ route('material.index') }}" :active="request()->routeIs('material.index')">
+                            <x-icons.material class="w-5 h-5" />
+                            <span class="text-sm">Materials</span>
+                        </x-side-link>
+                    </li>
+                    <li class="px-3">
+                        <x-side-link href="{{ route('color.index') }}" :active="request()->routeIs('color.index')">
+                            <x-icons.size class="w-5 h-5" />
+                            <span class="text-sm">Colors</span>
+                        </x-side-link>
+                    </li>
+                    <li class="px-3">
+                        <x-side-link href="{{ route('size.index') }}" :active="request()->routeIs('size.index')">
                             <x-icons.size class="w-5 h-5" />
                             <span class="text-sm">Sizes</span>
                         </x-side-link>
                     </li>
-                    <li>
-                        <x-side-link href="{{ route('category.index') }}" wire:navigate :active="request()->routeIs('category.index')">
+                    <li class="px-3">
+                        <x-side-link href="{{ route('model.index') }}" :active="request()->routeIs('model.index')">
                             <x-icons.model class="w-5 h-5" />
                             <span class="text-sm">Model</span>
                         </x-side-link>
                     </li>
-                    <li>
-                        <x-side-link href="{{ route('category.index') }}" wire:navigate :active="request()->routeIs('category.index')">
+                    <hr class="my-2"/>
+                    <li class="px-3">
+                        <x-side-link href="{{ route('category.index') }}" :active="request()->routeIs('category.index')">
                             <x-icons.inventory class="w-5 h-5" />
                             <span class="text-sm">Inventory</span>
                         </x-side-link>
                     </li>
-                    <li>
-                        <x-side-link href="{{ route('category.index') }}" wire:navigate :active="request()->routeIs('category.index')">
+                    <li class="px-3">
+                        <x-side-link href="{{ route('category.index') }}" :active="request()->routeIs('category.index')">
                             <x-icons.setting class="w-5 h-5" />
                             <span class="text-sm">Settings</span>
                         </x-side-link>
@@ -103,9 +125,9 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
-        
+
         <x-notify />
 
         @livewireScripts

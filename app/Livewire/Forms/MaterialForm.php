@@ -18,14 +18,14 @@ class MaterialForm extends Form
     public $slug;
 
     #[Validate('required')]
-    public $sub_category_id;
+    public $brand_id;
 
     public function setMaterial(Material $material){
         $this->material = $material;
         $this->name = $material->name;
         $this->slug = $material->slug;
-        $this->sub_category_id = $material->sub_category_id;
         $this->thumbnail = $material->thumbnail;
+        $this->brand_id = $material->brand_id;
     }
 
     public function store(){

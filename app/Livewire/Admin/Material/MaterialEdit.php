@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Admin\Material;
 
+use App\Models\Brand;
 use Livewire\Component;
 use App\Models\Material;
 use App\Models\SubCategory;
@@ -13,6 +14,33 @@ class MaterialEdit extends Component
     public MaterialForm $form;
 
     public $modalEdit = false;
+    public $resultDiv = false;
+    public $search = "";
+    public $results;
+
+    public function searchBrand(){
+        if(!empty($this->search)){
+            $this->results = Brand::orderby('id','asc')
+                      ->select('*')
+                      ->where('name','like','%'.$this->search.'%')
+                      ->limit(5)
+                      ->get();
+
+            $this->resultDiv = true;
+        }else{
+            $this->resultDiv = false;
+        }
+    }
+    public function fetchById($id = 0){
+
+        $result = Brand::select('*')
+                    ->where('id',$id)
+                    ->first();
+
+        $this->search = $result->path;
+        $this->form->brand_id = $result->id;
+        $this->resultDiv = false;
+    }
 
     #[On('dispatch-material-table-edit')]
     public function set_material(Material $id)
@@ -36,7 +64,7 @@ class MaterialEdit extends Component
     public function render()
     {
         return view('livewire.admin.material.material-edit', [
-            'subcategories' => SubCategory::all()
+            'brands' => Brand::all()
         ]);
     }
 }

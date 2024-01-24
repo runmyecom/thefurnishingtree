@@ -19,9 +19,12 @@
     </head>
     <body>
         <div class="font-sans text-gray-900 antialiased">
-            {{ $slot }}
+            <main class="">
+                {{ $slot }}
+            </main>
         </div>
 
+        <x-notify />
         @livewireScripts
     </body>
 </html>

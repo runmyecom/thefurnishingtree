@@ -15,8 +15,10 @@ class CategoryTable extends Component
     use WithSorting;
 
     public CategoryForm $form;
+    public $checked = [];
+    public $selectall = false;
 
-    public 
+    public
         $paginate = 10,
         $sortBy = 'categories.id',
         $sortDirection = 'desc';
@@ -27,9 +29,25 @@ class CategoryTable extends Component
     public function render()
     {
         return view('livewire.admin.category.category-table', [
-            'data' => Category::where('name', 'like', '%'.$this->form->name.'%')
-                ->orderBy($this->sortBy, $this->sortDirection)
-                ->paginate($this->paginate)
+            'categories' => $this->categories
         ]);
+    }
+
+    public function getCategoriesProperty(){
+        return Category::where('name', 'like', '%'.$this->form->name.'%')
+        ->orderBy($this->sortBy, $this->sortDirection)
+        ->paginate($this->paginate);
+    }
+
+    public function updatedSelectall($value){
+        if($value){
+
+        } else {
+            $this->checked = [];
+        }
+    }
+
+    public function deleteCategories(){
+
     }
 }

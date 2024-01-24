@@ -3,7 +3,10 @@
 namespace App\Livewire\Forms;
 
 use Livewire\Form;
+use App\Models\Node;
+use App\Models\Category;
 use App\Models\SubCategory;
+use Illuminate\Support\Str;
 use Livewire\Attributes\Validate;
 
 class SubCategoryForm extends Form
@@ -29,7 +32,23 @@ class SubCategoryForm extends Form
     }
 
     public function store(){
-        SubCategory::create($this->except('subcategory'));
+        $sub = SubCategory::create($this->except('subcategory'));
+
+        // Create New Node
+        $node = new Node;
+        $node->category_id = $sub->category_id;
+        $cat = Category::where('id', $sub->category_id)->first();
+        $node->category_name = $cat->name;
+
+        $node->subcategory_id = $sub->id;
+        $node->subcategory_name = $sub->name;
+
+        $random = Str::random(5);
+        $node->uuid = $random;
+
+        $node->path = $cat->name.'>'.$sub->name;
+
+        $node->save();
         
         $this->reset();
     }

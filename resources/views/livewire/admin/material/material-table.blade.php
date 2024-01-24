@@ -25,7 +25,7 @@
           <th scope="col" class="px-6 py-3 text-start">
             <div class="flex items-center gap-x-2">
               <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                Sub-Category
+                Brand
               </span>
             </div>
           </th>
@@ -60,14 +60,13 @@
                       </div>
                   </td>
                   <td class="h-px w-px whitespace-nowrap">
-                      <div class="px-6 py-3">
-                          <span class="py-1 px-3 inline-flex items-center gap-x-1 text-xs font-medium bg-violet-50 border border-violet-200 text-violet-500 rounded-full">
-                            @isset($item->subcategory)
-                              {{ $item->subcategory->name }}
-                            @endisset
-                          </span>
-                      </div>
-                  </div>
+                    <div class="px-6 py-3">
+                      <span class="py-1 px-3 inline-flex items-center gap-x-1 text-xs font-medium bg-violet-50 border border-violet-200 text-violet-500 rounded-full">
+                        @isset($item->brand)
+                          {{ $item->brand->name }}
+                        @endisset
+                      </span>
+                    </div>
                   </td>
                   <td class="h-px w-px whitespace-nowrap">
                     <div class="px-6 py-3">

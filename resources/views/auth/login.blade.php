@@ -44,8 +44,8 @@
                 </x-button>
             </div>
         </form>
-        
-        <a href="{{ route('register') }}" wire:navigate class="font-semibold text-gray-600">Register</a>
+
+        <a href="{{ route('register') }}" class="font-semibold text-gray-600">Register</a>
     </x-authentication-card>
 
 </x-guest-layout>

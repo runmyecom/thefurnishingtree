@@ -28,7 +28,7 @@ class MaterialTable extends Component
     {
         return view('livewire.admin.material.material-table', [
             'data' => Material::where('name', 'like', '%'.$this->form->name.'%')
-                ->with('subcategory')
+                ->with('brand')
                 ->orderBy($this->sortBy, $this->sortDirection)
                 ->paginate($this->paginate)
         ]);

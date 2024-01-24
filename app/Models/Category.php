@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Item;
 use App\Models\SubCategory;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;

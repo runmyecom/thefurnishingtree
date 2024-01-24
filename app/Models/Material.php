@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use App\Models\SubCategory;
+use App\Models\Color;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
@@ -22,9 +23,14 @@ class Material extends Model
             ->saveSlugsTo('slug');
     }
 
-    public function subcategory(): BelongsTo
+    public function brand(): BelongsTo
     {
-        return $this->belongsTo(SubCategory::class, 'sub_category_id');
+        return $this->belongsTo(Brand::class);
+    }
+
+    public function colors(): HasMany
+    {
+        return $this->hasMany(Color::class);
     }
     
 }

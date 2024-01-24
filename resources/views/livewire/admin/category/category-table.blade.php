@@ -4,6 +4,9 @@
     <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
       <thead class="bg-gray-50 dark:bg-slate-900">
         <tr>
+          <th scope="col" class="ps-6 py-3 flex items-center gap-1">
+            <input class="focus:outline-none focus:ring-0" type="checkbox" wire:model.live="selectall" />
+          </th>
           <th scope="col" class="ps-6 py-3 text-start">#</th>
           <th scope="col" class="px-6 py-3 text-start" @click="$wire.sortField('name')">
             <div class="flex items-center gap-x-2">
@@ -35,49 +38,45 @@
       </thead>
 
       <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-          @isset($data)
-              @foreach ($data as $category)
+          @isset($categories)
+              @foreach ($categories as $category)
               <tr>
-                  <td class="h-px w-px whitespace-nowrap">
-                      <span class="ps-6 py-3">{{ $loop->iteration }}.</span>
-                  </td>
-                  <td class="h-px w-px whitespace-nowrap">
-                      <div class="px-6 py-3">
-                          <span class="text-sm text-gray-600 dark:text-gray-400">{{ $category->name }}</span>
-                      </div>
-                  </td>
-                  <td class="h-px w-px whitespace-nowrap">
-                      <div class="px-6 py-3">
-                          <span class="text-sm text-gray-600 dark:text-gray-400">{{ $category->slug }}</span>
-                      </div>
-                  </div>
-                  </td>
-                  <td class="h-px w-px whitespace-nowrap">
-                  <div class="px-6 py-3">
-                      <span class="text-sm text-gray-600 dark:text-gray-400">{{ $category->created_at }}</span>
-                  </div>
-                  </td>
-                  <td class="h-px w-px whitespace-nowrap">
-                      <div class="px-6 py-1.5">
-                          <div class="hs-dropdown relative inline-block [--placement:bottom-right]">
-                              <button id="hs-table-dropdown-1" type="button" class="hs-dropdown-toggle py-1.5 px-2 inline-flex justify-center items-center gap-2 rounded-lg text-gray-700 align-middle disabled:opacity-50 disabled:pointer-events-none transition-all text-sm">
-                                  <x-icons.more class="w-4 h-4" />
-                              </button>
-                              <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden mt-2 divide-y divide-gray-200 min-w-[10rem] z-10 bg-white shadow-xl rounded-lg border border-gray-100" aria-labelledby="hs-table-dropdown-1">
-                                  <div class="p-1">
-                                      <button type="button" class="w-full flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100" @click="$dispatch('dispatch-category-table-edit', { id: '{{ $category->id }}' })">
-                                          Edit
-                                      </button>
-                                  </div>
-                                  <div class="p-1">
-                                      <button type="button" class="w-full flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-red-600 hover:bg-gray-100" @click="$dispatch('dispatch-category-table-delete', { id: '{{ $category->id }}', name: '{{ $category->name }}' })">
-                                          Delete
-                                      </button>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                  </td>
+                    <td class="h-px w-px whitespace-nowrap">
+                        <span class="ps-6 py-3">
+                            <input class="focus:outline-none focus:ring-0" type="checkbox" value="{{ $category->id }}" wire:model="checked" />
+                        </span>
+                    </td>
+                    <td class="h-px w-px whitespace-nowrap">
+                        <span class="ps-6 py-3">{{ $loop->iteration }}.</span>
+                    </td>
+                    <td class="h-px w-px whitespace-nowrap">
+                        <div class="px-6 py-3">
+                            <span class="text-sm text-gray-600 dark:text-gray-400">{{ $category->name }}</span>
+                        </div>
+                    </td>
+                    <td class="h-px w-px whitespace-nowrap">
+                        <div class="px-6 py-3">
+                            <span class="text-sm text-gray-600 dark:text-gray-400">{{ $category->slug }}</span>
+                        </div>
+                    </div>
+                    </td>
+                    <td class="h-px w-px whitespace-nowrap">
+                    <div class="px-6 py-3">
+                        <span class="text-sm text-gray-600 dark:text-gray-400">{{ $category->created_at }}</span>
+                    </div>
+                    </td>
+                    <td class="h-px w-px whitespace-nowrap">
+                        <div class="px-6 py-1.5">
+                            <div class="flex items-center gap-2">
+                                <button type="button" class="" @click="$dispatch('dispatch-category-table-edit', { id: '{{ $category->id }}' })">
+                                    <x-icons.edit class="w-5 h-5" />
+                                </button>
+                                <button type="button" class="" @click="$dispatch('dispatch-category-table-delete', { id: '{{ $category->id }}', name: '{{ $category->name }}' })">
+                                    <x-icons.delete class="w-5 h-5" />
+                                </button>
+                            </div>
+                        </div>
+                    </td>
               </tr>
               @endforeach
           @endisset
@@ -95,7 +94,7 @@
           <option value="100">100</option>
       </select>
       <div class="w-full">
-          {{ $data->onEachSide(1)->links() }}
+          {{ $categories->onEachSide(1)->links() }}
       </div>
     </div>
 </div>

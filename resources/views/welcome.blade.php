@@ -1,27 +1,9 @@
-<x-guest-layout>
-    <livewire:guest-navigation />
-
+<x-app-layout>
     <!-- Hero Banner -->
-    <div class="hero-area max-w-7xl mx-auto overflow-hidden h-[70vh] bg-orange-50 relative rounded-lg">
-      <div class="absolute left-0 top-0 flex flex-col items-start justify-between h-full px-20 pt-20 pb-10">
-        <div>
-            <h2 class="text-3xl">
-              <strong>TheFurnishingStore.</strong> Number #1 <br/>
-            Trusted Cover Website
-          </h2>
-          <p class="mt-3 text-orange-400">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </div>
-        <button class="">
-          <span class="border-b-2 py-2 text-xs uppercase text-orange-600 border-orange-600">View Now</span>
-        </button>
-        <div class="flex-center gap-3">
-          <button class="text-sm uppercase">Prev</button>
-          <button class="text-sm uppercase">|</button>
-          <button class="text-sm uppercase">Next</button>
-        </div>
-      </div>
-      <img src="/images/products/hero.png" alt="" class="w-full h-full object-cover">
+    <div class="hero-area w-full overflow-hidden h-[75vh]">
+      <img src="/images/slide_1.png" alt="" class="w-full h-full object-cover">
     </div>
+
     <!-- featured-product grid -->
     <section class="max-w-7xl mx-auto grid grid-cols-2 gap-5 mt-5">
       <img src="/images/products/sample-1.jpeg" alt="" class="h-[40vh] object-cover rounded-lg w-full">
@@ -32,11 +14,22 @@
     <section class="w-full max-w-7xl mx-auto py-20 mt-32">
       <div class="bg-gray-100 flex rounded relative">
         <div class="py-16 px-20">
-          <h2 class="uppercase text-3xl mb-2"><span class="font-bold">STYLISH</span> Minimal chair</h2>
+          <h2 class="uppercase text-3xl mb-2"><span class="font-bold">STYLISH</span> Washing Machine Cover</h2>
           <button class="text-xs underline uppercase text-gray-600">View Now</button>
         </div>
         <img src="/images/png.png" alt="" class="absolute right-20 -bottom-6 w-[30vw]">
       </div>
+    </section>
+
+    {{-- Items --}}
+    <section class="w-full max-w-7xl mx-auto py-20">
+        <div class="grid grid-cols-4 gap-5">
+            @if ($items->isNotEmpty())
+                @foreach ($items as $item)
+                    <livewire:components.item-card :item="$item" />
+                @endforeach
+            @endif
+        </div>
     </section>
 
     <!-- Most selling product -->
@@ -89,5 +82,6 @@
         </div>
       </div>
     </section>
-</x-guest-layout>
+
+</x-app-layout>
 

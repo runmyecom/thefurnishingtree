@@ -61,10 +61,11 @@
                   </td>
                   <td class="h-px w-px whitespace-nowrap">
                       <div class="px-6 py-3">
-                          <!-- <span class="text-sm text-gray-600 dark:text-gray-400">{{ $category->category->name }}</span> -->
+                        @if($category->category)
                           <span class="py-1 px-3 inline-flex items-center gap-x-1 text-xs font-medium bg-violet-50 border border-violet-200 text-violet-500 rounded-full">
                             {{ $category->category->name }}
                           </span>
+                        @endif
                       </div>
                   </div>
                   </td>

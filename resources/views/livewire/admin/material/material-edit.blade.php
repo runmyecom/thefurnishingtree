@@ -8,13 +8,27 @@
             <div class="grid grid-cols-12 gap-4">
                 <!-- Select Category -->
                 <div class="col-span-12">
-                    <x-label for="form.sub_category_id" value="SubCategoryId" />
-                    <x-select wire:model="form.sub_category_id" id="form.sub_category_id" required class="w-full">
-                        @foreach($subcategories as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    <x-label for="form.brand_id" value="Search Brand" />
+                    <div class="search-box relative">
+                        <x-input type='text' wire:model="search" wire:keyup="searchBrand" placeholder="Search Brand" />
+                        @if($resultDiv)
+                            <ul class="absolute top-12 left-4 right-4 bg-white rounded-lg overflow-hidden shadow-lg border divide-y">
+                                @if(!empty($results))
+                                    @foreach($results as $result)
+                                        <li class="cursor-pointer p-2.5 hover:bg-zinc-50 bg-white" wire:click="fetchById({{ $result->id }})">{{ $result->name}}</li>
+                                    @endforeach
+                                @endif
+                            </ul>
+                        @endif
+                    </div>
+                    <x-input-error for="form.brand_id" class="mt-1" />
+
+                    <x-select wire:model="form.brand_id" id="form.brand_id" required class="w-full mt-4">
+                        @foreach($brands as $brand)
+                            <option value="{{ $brand->id }}">{{ $brand->name }}</option>
                         @endforeach
                     </x-select>
-                    <x-input-error for="sub_category_id" class="mt-1" />
+                    <x-input-error for="form.brand_id" class="mt-1" />
                 </div>
 
                 <!-- Category name -->

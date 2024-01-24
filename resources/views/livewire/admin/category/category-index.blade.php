@@ -8,6 +8,18 @@
 
         <div>
             <div class="inline-flex gap-x-2">
+                {{-- <x-outline-button>
+                    <a href="/category/bulk-update" class="flex items-center gap-2">
+                        <x-icons.excel class="w-4 h-4 text-gray-700" />
+                        Bulk Update
+                    </a>
+                </x-outline-button> --}}
+                <x-outline-button>
+                    <a href="/category/bulk-upload" class="flex items-center gap-2">
+                        <x-icons.excel class="w-4 h-4 text-gray-700" />
+                        Bulk Upload
+                    </a>
+                </x-outline-button>
                 <livewire:admin.category.category-create />
             </div>
         </div>

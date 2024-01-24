@@ -17,6 +17,7 @@
     },
     "dependencies": {
         "preline": "^2.0.2",
-        "toastify-js": "^1.12.0"
+        "toastify-js": "^1.12.0",
+        "tom-select": "^2.3.1"
     }
 }

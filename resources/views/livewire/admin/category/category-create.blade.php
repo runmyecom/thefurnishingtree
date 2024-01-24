@@ -1,5 +1,8 @@
 <div>
-    <x-outline-button @click="$wire.set('modalCategoryCreate', true)">Create Category</x-outline-button>
+    <x-outline-button @click="$wire.set('modalCategoryCreate', true)" class="flex items-center gap-1">
+        <x-icons.add class="w-4 h-4 text-gray-700" />
+        Create Category
+    </x-outline-button>
 
     <x-dialog-form wire:model.live="modalCategoryCreate" submit="save">
         <x-slot name="title">
