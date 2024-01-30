@@ -38,8 +38,7 @@ class SizeImport implements ToModel, WithStartRow, WithBatchInserts, WithChunkRe
             return new Size([
                 'name' => $row[0],
                 'slug' => $row[1],
-                'thumbnail' => $row[2],
-                'color_id' => $row[3],
+                'color_id' => $row[2],
             ]);
         }
     }
