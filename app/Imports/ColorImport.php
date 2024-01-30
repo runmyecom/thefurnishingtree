@@ -30,7 +30,7 @@ class ColorImport implements ToModel, WithStartRow, WithBatchInserts, WithChunkR
             return new Color([
                 'name' => $row[0],
                 'slug' => $row[1],
-                'material_id' => $row[3],
+                'material_id' => $row[2],
             ]);
         }
 
