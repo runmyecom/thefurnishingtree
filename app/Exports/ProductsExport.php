@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\Product;
+use App\Models\Item;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
@@ -12,7 +12,7 @@ class ProductsExport implements FromCollection, WithHeadings
     {
         return [
             '#',
-            'name', 
+            'name',
             'thumbnail',
             'dimension',
             'mrp',
@@ -30,9 +30,9 @@ class ProductsExport implements FromCollection, WithHeadings
     */
     public function collection()
     {
-        return Product::select(
-            'id', 
-            'name', 
+        return Item::select(
+            'id',
+            'name',
             'thumbnail',
             'dimension',
             'mrp',

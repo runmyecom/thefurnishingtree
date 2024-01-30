@@ -4,9 +4,6 @@
     <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
       <thead class="bg-gray-50 dark:bg-slate-900">
         <tr>
-          <th scope="col" class="ps-6 py-3 flex items-center gap-1">
-            <input class="focus:outline-none focus:ring-0" type="checkbox" wire:model.live="selectall" />
-          </th>
           <th scope="col" class="ps-6 py-3 text-start">#</th>
           <th scope="col" class="px-6 py-3 text-start" @click="$wire.sortField('name')">
             <div class="flex items-center gap-x-2">
@@ -41,11 +38,6 @@
           @isset($categories)
               @foreach ($categories as $category)
               <tr>
-                    <td class="h-px w-px whitespace-nowrap">
-                        <span class="ps-6 py-3">
-                            <input class="focus:outline-none focus:ring-0" type="checkbox" value="{{ $category->id }}" wire:model="checked" />
-                        </span>
-                    </td>
                     <td class="h-px w-px whitespace-nowrap">
                         <span class="ps-6 py-3">{{ $loop->iteration }}.</span>
                     </td>

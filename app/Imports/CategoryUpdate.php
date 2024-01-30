@@ -29,12 +29,12 @@ class CategoryUpdate implements ToCollection, WithStartRow, WithBatchInserts, Wi
     */
     public function collection(Collection $rows)
     {
-        foreach ($rows as $row) {
-
-            Category::upsert(
-                ['name' => $row[0], 'slug' => $row[1], 'thumbnail' => $row[2]],
-                ['name' => $row[0]]
-            );
+        foreach ($rows as $row){
+            $category = Category::find($row[0]);
+            $category->name = $row[1];
+            $category->slug = $row[2];
+            $category->thumbnail = $row[3];
+            $category->save();
         }
     }
 

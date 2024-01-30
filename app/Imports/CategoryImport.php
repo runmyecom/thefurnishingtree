@@ -28,15 +28,15 @@ class CategoryImport implements ToModel, WithStartRow, WithBatchInserts, WithChu
     */
     public function model(array $row)
     {
-        $data = Category::where('name', $row[0])->first();
+        $data = Category::where('name', $row[1])->first();
 
         if ($data) {
             return;
         } else {
             return new Category([
-                'name' => $row[0],
-                'slug' => $row[1],
-                'thumbnail' => $row[2],
+                'name' => $row[1],
+                'slug' => $row[2],
+                'thumbnail' => $row[3],
             ]);
         }
 

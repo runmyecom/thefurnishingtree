@@ -16,7 +16,7 @@ class NodeTable extends Component
 
     public NodeForm $form;
 
-    public 
+    public
         $paginate = 10,
         $sortBy = 'nodes.id',
         $sortDirection = 'desc';

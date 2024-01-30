@@ -13,6 +13,32 @@ class TypeEdit extends Component
     public TypeForm $form;
 
     public $modalEdit = false;
+    public $resultDiv = false;
+    public $search = "";
+    public $results;
+
+    public function searchSubCategory(){
+        if(!empty($this->search)){
+            $this->results = SubCategory::orderby('name','asc')
+                      ->select('*')
+                      ->where('name','like','%'.$this->search.'%')
+                      ->limit(5)
+                      ->get();
+
+            $this->resultDiv = true;
+        }else{
+            $this->resultDiv = false;
+        }
+    }
+    public function fetchDetailById($id = 0){
+        $result = SubCategory::select('*')
+                    ->where('id',$id)
+                    ->first();
+
+        $this->search = $result->name;
+        $this->form->subcategory_id = $result->id;
+        $this->resultDiv = false;
+    }
 
     #[On('dispatch-type-table-edit')]
     public function set_type(Type $id)
@@ -25,6 +51,9 @@ class TypeEdit extends Component
     {
         $this->validate();
         $update = $this->form->update();
+        $this->form->reset();
+        $this->search = "";
+        // $this->modalEdit = false;
 
         $this->dispatch('dispatch-type-create-edit')->to(TypeTable::class);
 
@@ -35,8 +64,6 @@ class TypeEdit extends Component
 
     public function render()
     {
-        return view('livewire.admin.type.type-edit',[
-            'subcategories' => SubCategory::all()
-        ]);
+        return view('livewire.admin.type.type-edit');
     }
 }

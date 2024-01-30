@@ -24,11 +24,30 @@ use App\Livewire\Admin\Order\OrderIndex;
 use App\Livewire\Client\BrandByCategory;
 use App\Livewire\Client\ColorByMaterial;
 use App\Livewire\Client\MaterialByBrand;
+use App\Livewire\Admin\Size\SizeBulkDelete;
+use App\Livewire\Admin\Size\SizeBulkUpdate;
+use App\Livewire\Admin\Size\SizeBulkUpload;
+use App\Livewire\Admin\Type\TypeBulkDelete;
+use App\Livewire\Admin\Type\TypeBulkUpdate;
+use App\Livewire\Admin\Type\TypeBulkUpload;
 use App\Livewire\Admin\SubCategory\SubIndex;
 use App\Livewire\Admin\Category\CategoryBulk;
+use App\Livewire\Admin\Color\ColorBulkDelete;
+use App\Livewire\Admin\Color\ColorBulkUpdate;
+use App\Livewire\Admin\Color\ColorBulkUpload;
+use App\Livewire\Admin\Model\ModelBulkDelete;
+use App\Livewire\Admin\Model\ModelBulkUpdate;
+use App\Livewire\Admin\Model\ModelBulkUpload;
 use App\Livewire\Admin\Category\CategoryIndex;
 use App\Livewire\Admin\Material\MaterialIndex;
+use App\Livewire\Admin\Category\CategoryBulkDelete;
 use App\Livewire\Admin\Category\CategoryBulkUpdate;
+use App\Livewire\Admin\Material\MaterialBulkDelete;
+use App\Livewire\Admin\Material\MaterialBulkUpdate;
+use App\Livewire\Admin\Material\MaterialBulkUpload;
+use App\Livewire\Admin\SubCategory\SubCategoryBulkDelete;
+use App\Livewire\Admin\SubCategory\SubCategoryBulkUpdate;
+use App\Livewire\Admin\SubCategory\SubCategoryBulkUpload;
 
 /*
 |--------------------------------------------------------------------------
@@ -75,20 +94,42 @@ Route::middleware([
     Route::get('/category', CategoryIndex::class)->name('category.index');
     Route::get('/category/bulk-upload', CategoryBulk::class);
     Route::get('/category/bulk-update', CategoryBulkUpdate::class);
+    Route::get('/category/bulk-delete', CategoryBulkDelete::class);
 
     Route::get('/sub-category', SubIndex::class)->name('sub_category.index');
+    Route::get('/sub-category/bulk-upload', SubCategoryBulkUpload::class);
+    Route::get('/sub-category/bulk-update', SubCategoryBulkUpdate::class);
+    Route::get('/sub-category/bulk-delete', SubCategoryBulkDelete::class);
 
     Route::get('/types', TypeIndex::class)->name('type.index');
-
-    Route::get('/material', MaterialIndex::class)->name('material.index');
+    Route::get('/types/bulk-upload', TypeBulkUpload::class);
+    Route::get('/types/bulk-update', TypeBulkUpdate::class);
+    Route::get('/types/bulk-delete', TypeBulkDelete::class);
 
     Route::get('/brands', BrandIndex::class)->name('brand.index');
+    Route::get('/types/bulk-upload', TypeBulkUpload::class);
+    Route::get('/types/bulk-update', TypeBulkUpdate::class);
+    Route::get('/types/bulk-delete', TypeBulkDelete::class);
 
-    Route::get('/models', ModelIndex::class)->name('model.index');
-
-    Route::get('/sizes', SizeIndex::class)->name('size.index');
+    Route::get('/material', MaterialIndex::class)->name('material.index');
+    Route::get('/material/bulk-upload', MaterialBulkUpload::class);
+    Route::get('/material/bulk-update', MaterialBulkUpdate::class);
+    Route::get('/material/bulk-delete', MaterialBulkDelete::class);
 
     Route::get('/colors', ColorIndex::class)->name('color.index');
+    Route::get('/colors/bulk-upload', ColorBulkUpload::class);
+    Route::get('/colors/bulk-update', ColorBulkUpdate::class);
+    Route::get('/colors/bulk-delete', ColorBulkDelete::class);
+
+    Route::get('/sizes', SizeIndex::class)->name('size.index');
+    Route::get('/sizes/bulk-upload', SizeBulkUpload::class);
+    Route::get('/sizes/bulk-update', SizeBulkUpdate::class);
+    Route::get('/sizes/bulk-delete', SizeBulkDelete::class);
+
+    Route::get('/models', ModelIndex::class)->name('model.index');
+    Route::get('/models/bulk-upload', ModelBulkUpload::class);
+    Route::get('/models/bulk-update', ModelBulkUpdate::class);
+    Route::get('/models/bulk-delete', ModelBulkDelete::class);
 
     Route::get('/items', ItemIndex::class)->name('item.index');
     Route::get('/items/bulk-upload', ImportSheet::class);

@@ -21,7 +21,7 @@ class TypeForm extends Form
     public $thumbnail;
     public $slug;
 
-    #[Validate('required', as: 'Sub-Category')]
+    // #[Validate('required', as: 'Sub-Category')]
     public $subcategory_id;
 
     public function setType(Type $type){
@@ -41,7 +41,7 @@ class TypeForm extends Form
         $node->type_name = $type->name;
         // Sub-Category ID - Name
         $node->subcategory_id = $type->subcategory_id;
-        $sub_cat = SubCategory::where('category_id', $type->subcategory_id)->first();
+        $sub_cat = SubCategory::where('id', $type->subcategory_id)->first();
         $node->subcategory_name = $sub_cat->name;
         // Category ID - Name
         $cat = Category::where('id', $sub_cat->category_id)->first();
@@ -54,11 +54,11 @@ class TypeForm extends Form
         $node->path = $cat->name . '>' . $sub_cat->name . '>' . $type->name;
 
         $node->save();
-        
+
         $this->reset();
     }
 
-    public function update(){ 
+    public function update(){
         $this->type->update($this->except('type'));
     }
 }

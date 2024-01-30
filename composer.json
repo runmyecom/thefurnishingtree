@@ -12,6 +12,7 @@
         "laravel/jetstream": "^4.1",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
+        "laravel/vapor-cli": "^1.63",
         "laravel/vapor-core": "^2.36",
         "livewire/livewire": "^3.0",
         "maatwebsite/excel": "^3.1",
