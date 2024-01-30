@@ -62,17 +62,17 @@
                             style="display: none;"
                             class="absolute left-0 mt-2 w-40 rounded-md bg-white shadow-md"
                         >
-                            <a href="/size/bulk-upload" class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500">
+                            <a href="/sizes/bulk-upload" class="flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500">
                                 <x-icons.upload class="w-5 h-5 text-gray-700" />
                                 <span class="text-sm">Bulk Upload</span>
                             </a>
 
-                            <a href="/size/bulk-update" class="border-t flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500">
+                            <a href="/sizes/bulk-update" class="border-t flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500">
                                 <x-icons.update class="w-5 h-5 text-gray-700" />
                                 <span class="text-sm">Update Sheet</span>
                             </a>
 
-                            <a href="/size/bulk-delete" class="border-t flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500">
+                            <a href="/sizes/bulk-delete" class="border-t flex items-center gap-2 w-full first-of-type:rounded-t-md last-of-type:rounded-b-md px-4 py-2.5 text-left text-sm hover:bg-gray-50 disabled:text-gray-500">
                                 <x-icons.delete class="w-5 h-5 text-gray-700" />
                                 <span class="text-sm">Bulk Delete</span>
                             </a>

@@ -5,8 +5,10 @@ namespace App\Livewire\Admin\Size;
 use Livewire\Component;
 use App\Imports\SizeImport;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\Layout;
 use Maatwebsite\Excel\Facades\Excel;
 
+#[Layout('layouts.admin')]
 class SizeBulkUpload extends Component
 {
     use WithFileUploads;
