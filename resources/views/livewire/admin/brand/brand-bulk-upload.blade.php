@@ -3,10 +3,10 @@
         <div class="w-full flex items-center">
             <form wire:submit="import" class="w-full flex flex-col bg-white border shadow-sm rounded-xl">
                 <div class="flex justify-between items-center py-3 px-4 border-b">
-                    <h3 class="font-bold text-gray-800">Import Category List</h3>
+                    <h3 class="font-bold text-gray-800">Import Brand List</h3>
                 </div>
                 <div class="px-20 py-6 overflow-y-auto">
-                    <p class="text-gray-500">Through imports you can add or update categories. To update existing category you must set an existing id in the Category id columns. If the value is unset a new record will be created. You will be asked for confirmation before we import category.</p>
+                    <p class="text-gray-500">Through imports you can add or update brands. To update existing category you must set an existing id in the Category id columns. If the value is unset a new record will be created. You will be asked for confirmation before we import category.</p>
                     <label for="sheetImport" class="border-2 border-dashed rounded-xl flex flex-col items-center justify-center py-8 cursor-pointer hover:border-teal-400 my-6">
                         <div wire:loading class="flex flex-col items-center justify-center">
                             <x-icons.loading class="w-12 h-12 text-teal-600" />

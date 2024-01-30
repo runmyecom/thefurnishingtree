@@ -18,6 +18,7 @@ use App\Livewire\Admin\Order\ThankYou;
 use App\Livewire\Admin\Size\SizeIndex;
 use App\Livewire\Admin\Type\TypeIndex;
 use App\Livewire\Admin\Brand\BrandIndex;
+use App\Livewire\Admin\Brand\BulkDelete;
 use App\Livewire\Admin\Color\ColorIndex;
 use App\Livewire\Admin\Model\ModelIndex;
 use App\Livewire\Admin\Order\OrderIndex;
@@ -31,6 +32,8 @@ use App\Livewire\Admin\Type\TypeBulkDelete;
 use App\Livewire\Admin\Type\TypeBulkUpdate;
 use App\Livewire\Admin\Type\TypeBulkUpload;
 use App\Livewire\Admin\SubCategory\SubIndex;
+use App\Livewire\Admin\Brand\BrandBulkUpdate;
+use App\Livewire\Admin\Brand\BrandBulkUpload;
 use App\Livewire\Admin\Category\CategoryBulk;
 use App\Livewire\Admin\Color\ColorBulkDelete;
 use App\Livewire\Admin\Color\ColorBulkUpdate;
@@ -107,9 +110,9 @@ Route::middleware([
     Route::get('/types/bulk-delete', TypeBulkDelete::class);
 
     Route::get('/brands', BrandIndex::class)->name('brand.index');
-    Route::get('/types/bulk-upload', TypeBulkUpload::class);
-    Route::get('/types/bulk-update', TypeBulkUpdate::class);
-    Route::get('/types/bulk-delete', TypeBulkDelete::class);
+    Route::get('/brands/bulk-upload', BrandBulkUpload::class);
+    Route::get('/brands/bulk-update', BrandBulkUpdate::class);
+    Route::get('/brands/bulk-delete', BulkDelete::class);
 
     Route::get('/material', MaterialIndex::class)->name('material.index');
     Route::get('/material/bulk-upload', MaterialBulkUpload::class);
