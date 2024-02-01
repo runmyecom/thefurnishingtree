@@ -25,6 +25,9 @@ use App\Livewire\Admin\Order\OrderIndex;
 use App\Livewire\Client\BrandByCategory;
 use App\Livewire\Client\ColorByMaterial;
 use App\Livewire\Client\MaterialByBrand;
+use App\Livewire\Admin\Item\ItemBulkDelete;
+use App\Livewire\Admin\Item\ItemBulkUpdate;
+use App\Livewire\Admin\Item\ItemBulkUpload;
 use App\Livewire\Admin\Size\SizeBulkDelete;
 use App\Livewire\Admin\Size\SizeBulkUpdate;
 use App\Livewire\Admin\Size\SizeBulkUpload;
@@ -135,7 +138,9 @@ Route::middleware([
     Route::get('/models/bulk-delete', ModelBulkDelete::class);
 
     Route::get('/items', ItemIndex::class)->name('item.index');
-    Route::get('/items/bulk-upload', ImportSheet::class);
+    Route::get('/items/bulk-upload', ItemBulkUpload::class);
+    Route::get('/items/bulk-update', ItemBulkUpdate::class);
+    Route::get('/items/bulk-delete', ItemBulkDelete::class);
 
     Route::get('/nodes', NodeIndex::class)->name('node.index');
 

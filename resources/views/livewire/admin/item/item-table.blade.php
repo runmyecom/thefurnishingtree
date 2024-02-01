@@ -60,7 +60,7 @@
                         <div class="px-6">{{ $item->selling_price }}</div>
                     </td>
                     <td class="h-px w-px whitespace-nowrap">
-                        <div class="px-6">{{ $item->model->name }}</div>
+                        <div class="px-6">{{ $item->model }}</div>
                     </td>
                     <td class="h-px w-px whitespace-nowrap">
                         <div class="px-6">{{ $item->is_featured }}</div>

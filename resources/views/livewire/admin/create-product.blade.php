@@ -76,128 +76,6 @@
                 <label class="text-gray-500 text-sm font-semibold">Packaging Weight</label>
                 <x-input placeholder="Packaging Weight" wire:model="form.dimension" />
             </div>
-            
-
-            <!-- Select Material -->
-            <div>
-                <label class="text-gray-500 text-sm font-semibold">Select Material</label>
-                <div class="relative">
-                    <select data-hs-select='{
-                        "hasSearch": true,
-                        "searchPlaceholder": "Search...",
-                        "searchClasses": "block w-full text-sm border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1] dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 py-2 px-3",
-                        "searchWrapperClasses": "bg-white p-2 -mx-1 sticky top-0 dark:bg-slate-900",
-                        "placeholder": "Select country...",
-                        "toggleTag": "<button type=\"button\"><span class=\"me-2\" data-icon></span><span class=\"text-gray-800 dark:text-gray-200\" data-title></span></button>",
-                        "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 px-4 pe-9 flex text-nowrap w-full cursor-pointer bg-white border border-gray-200 rounded-lg text-start text-sm focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1] dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600",
-                        "dropdownClasses": "mt-2 max-h-[300px] pb-1 px-1 space-y-0.5 z-20 w-full bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto dark:bg-slate-900 dark:border-gray-700",
-                        "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800 dark:text-gray-200 dark:focus:bg-slate-800",
-                        "optionTemplate": "<div><div class=\"flex items-center\"><div class=\"me-2\" data-icon></div><div class=\"text-gray-800 dark:text-gray-200\" data-title></div></div></div>"
-                        }' class="hidden">
-                        <option value="">Choose</option>
-                        <option value="afghanistan" data-hs-select-option=''>
-                            Afghanistan
-                        </option>
-                        <option value="india" data-hs-select-option=''>
-                            India
-                        </option>
-                    </select>
-
-                    <div class="absolute top-1/2 end-3 -translate-y-1/2">
-                        <svg class="flex-shrink-0 w-3.5 h-3.5 text-gray-500 dark:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
-                    </div>
-                </div>
-            </div>
-            <!-- Select Brand -->
-            <div>
-                <label class="text-gray-500 text-sm font-semibold">Select Brand</label>
-                <div class="relative">
-                    <select data-hs-select='{
-                        "hasSearch": true,
-                        "searchPlaceholder": "Search brand...",
-                        "searchClasses": "block w-full text-sm border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1] dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 py-2 px-3",
-                        "searchWrapperClasses": "bg-white p-2 -mx-1 sticky top-0 dark:bg-slate-900",
-                        "placeholder": "Select country...",
-                        "toggleTag": "<button type=\"button\"><span class=\"me-2\" data-icon></span><span class=\"text-gray-800 dark:text-gray-200\" data-title></span></button>",
-                        "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 px-4 pe-9 flex text-nowrap w-full cursor-pointer bg-white border border-gray-200 rounded-lg text-start text-sm focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1] dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600",
-                        "dropdownClasses": "mt-2 max-h-[300px] pb-1 px-1 space-y-0.5 z-20 w-full bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto dark:bg-slate-900 dark:border-gray-700",
-                        "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800 dark:text-gray-200 dark:focus:bg-slate-800",
-                        "optionTemplate": "<div><div class=\"flex items-center\"><div class=\"me-2\" data-icon></div><div class=\"text-gray-800 dark:text-gray-200\" data-title></div></div></div>"
-                        }' class="hidden">
-                        <option value="">Choose</option>
-                        <option value="afghanistan" data-hs-select-option=''>
-                            Afghanistan
-                        </option>
-                        <option value="india" data-hs-select-option=''>
-                            India
-                        </option>
-                    </select>
-
-                    <div class="absolute top-1/2 end-3 -translate-y-1/2">
-                        <svg class="flex-shrink-0 w-3.5 h-3.5 text-gray-500 dark:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
-                    </div>
-                </div>
-            </div>
-            <!-- Select Size -->
-            <div>
-                <label class="text-gray-500 text-sm font-semibold">Select Size</label>
-                <div class="relative">
-                    <select data-hs-select='{
-                        "hasSearch": true,
-                        "searchPlaceholder": "Search brand...",
-                        "searchClasses": "block w-full text-sm border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1] dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 py-2 px-3",
-                        "searchWrapperClasses": "bg-white p-2 -mx-1 sticky top-0 dark:bg-slate-900",
-                        "placeholder": "Select country...",
-                        "toggleTag": "<button type=\"button\"><span class=\"me-2\" data-icon></span><span class=\"text-gray-800 dark:text-gray-200\" data-title></span></button>",
-                        "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 px-4 pe-9 flex text-nowrap w-full cursor-pointer bg-white border border-gray-200 rounded-lg text-start text-sm focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1] dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600",
-                        "dropdownClasses": "mt-2 max-h-[300px] pb-1 px-1 space-y-0.5 z-20 w-full bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto dark:bg-slate-900 dark:border-gray-700",
-                        "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800 dark:text-gray-200 dark:focus:bg-slate-800",
-                        "optionTemplate": "<div><div class=\"flex items-center\"><div class=\"me-2\" data-icon></div><div class=\"text-gray-800 dark:text-gray-200\" data-title></div></div></div>"
-                        }' class="hidden">
-                        <option value="">Choose</option>
-                        <option value="afghanistan" data-hs-select-option=''>
-                            Afghanistan
-                        </option>
-                        <option value="india" data-hs-select-option=''>
-                            India
-                        </option>
-                    </select>
-
-                    <div class="absolute top-1/2 end-3 -translate-y-1/2">
-                        <svg class="flex-shrink-0 w-3.5 h-3.5 text-gray-500 dark:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
-                    </div>
-                </div>
-            </div>
-            <!-- Select Model -->
-            <div>
-                <label class="text-gray-500 text-sm font-semibold">Select Model</label>
-                <div class="relative">
-                    <select data-hs-select='{
-                        "hasSearch": true,
-                        "searchPlaceholder": "Search brand...",
-                        "searchClasses": "block w-full text-sm border-gray-200 rounded-lg focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1] dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600 py-2 px-3",
-                        "searchWrapperClasses": "bg-white p-2 -mx-1 sticky top-0 dark:bg-slate-900",
-                        "placeholder": "Select country...",
-                        "toggleTag": "<button type=\"button\"><span class=\"me-2\" data-icon></span><span class=\"text-gray-800 dark:text-gray-200\" data-title></span></button>",
-                        "toggleClasses": "hs-select-disabled:pointer-events-none hs-select-disabled:opacity-50 relative py-3 px-4 pe-9 flex text-nowrap w-full cursor-pointer bg-white border border-gray-200 rounded-lg text-start text-sm focus:border-blue-500 focus:ring-blue-500 before:absolute before:inset-0 before:z-[1] dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600",
-                        "dropdownClasses": "mt-2 max-h-[300px] pb-1 px-1 space-y-0.5 z-20 w-full bg-white border border-gray-200 rounded-lg overflow-hidden overflow-y-auto dark:bg-slate-900 dark:border-gray-700",
-                        "optionClasses": "py-2 px-4 w-full text-sm text-gray-800 cursor-pointer hover:bg-gray-100 rounded-lg focus:outline-none focus:bg-gray-100 dark:bg-slate-900 dark:hover:bg-slate-800 dark:text-gray-200 dark:focus:bg-slate-800",
-                        "optionTemplate": "<div><div class=\"flex items-center\"><div class=\"me-2\" data-icon></div><div class=\"text-gray-800 dark:text-gray-200\" data-title></div></div></div>"
-                        }' class="hidden">
-                        <option value="">Choose</option>
-                        <option value="afghanistan" data-hs-select-option=''>
-                            Afghanistan
-                        </option>
-                        <option value="india" data-hs-select-option=''>
-                            India
-                        </option>
-                    </select>
-
-                    <div class="absolute top-1/2 end-3 -translate-y-1/2">
-                        <svg class="flex-shrink-0 w-3.5 h-3.5 text-gray-500 dark:text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- Price and Tax -->
@@ -223,6 +101,34 @@
     <hr class="border border-dashed my-2" />
 
     <section class="p-6">
+        <h3 class="mb-6 font-bold">Item Variations</h3>
+        <div class="grid grid-cols-2 gap-6">
+            <div>
+                <label class="text-gray-500 text-sm font-semibold">Brand</label>
+                <x-input placeholder="Brand" wire:model="form.brand" />
+            </div>
+            <div>
+                <label class="text-gray-500 text-sm font-semibold">Material</label>
+                <x-input placeholder="Material" wire:model="form.material" />
+            </div>
+            <div>
+                <label class="text-gray-500 text-sm font-semibold">Color</label>
+                <x-input placeholder="Color code" wire:model="form.color" />
+            </div>
+            <div>
+                <label class="text-gray-500 text-sm font-semibold">Size</label>
+                <x-input placeholder="Item Size" wire:model="form.size" />
+            </div>
+            <div>
+                <label class="text-gray-500 text-sm font-semibold">Item Model</label>
+                <x-input placeholder="Item Model" wire:model="form.model" />
+            </div>
+        </div>
+    </section>
+
+    <hr class="border border-dashed my-2" />
+
+    <section class="p-6">
         <!-- Bullet Points -->
         <label for="title" class="text-gray-500 text-sm font-semibold">Bullet Points</label>
         <div class="flex gap-3 items-center w-full">
@@ -233,14 +139,14 @@
         </div>
 
         <p class="mt-3 text-end">
-            <button 
-                type="button" 
+            <button
+                type="button"
                 data-hs-copy-markup='{
                     "targetSelector": "#hs-content-for-copy",
                     "wrapperSelector": "#hs-wrapper-for-copy",
                     "limit": 6
-                }' 
-                id="hs-copy-content" 
+                }'
+                id="hs-copy-content"
                 class="py-1.5 px-2 inline-flex items-center gap-x-1 text-xs font-medium rounded-full border border-dashed border-gray-200 bg-white text-gray-800 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-gray-700 dark:text-gray-300 dark:hover:bg-gray-700 dark:focus:outline-none dark:focus:ring-1 dark:focus:ring-gray-600">
                     <svg class="flex-shrink-0 w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
                     Add Point

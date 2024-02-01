@@ -32,10 +32,10 @@ class ProductsImport implements ToModel, WithStartRow, WithBatchInserts, WithChu
             'item_name' => $row[1],
             'pattern' => $row[2],
 
-            'item_height' => $row[3],
-            'item_width' => $row[4],
+            'item_weight' => $row[3],
+            'item_height' => $row[4],
             'item_length' => $row[5],
-            'item_weight' => $row[6],
+            'item_width' => $row[6],
 
             'package_weight' => $row[7],
             'package_length' => $row[8],
@@ -67,7 +67,13 @@ class ProductsImport implements ToModel, WithStartRow, WithBatchInserts, WithChu
             'description' => $row[30],
 
             'is_featured' => $row[31],
-            'model_id' => $row[32],
+
+            'brand' => $row[32],
+            'material' => $row[33],
+            'color' => $row[34],
+            'size' => $row[35],
+            'model' => $row[36],
+            'node_id' => $row[37],
         ]);
     }
 

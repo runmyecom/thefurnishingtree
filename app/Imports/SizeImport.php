@@ -45,10 +45,10 @@ class SizeImport implements ToModel, WithStartRow, WithBatchInserts, WithChunkRe
 
     public function batchSize(): int
     {
-        return 1000;
+        return 2000;
     }
     public function chunkSize(): int
     {
-        return 1000;
+        return 2000;
     }
 }

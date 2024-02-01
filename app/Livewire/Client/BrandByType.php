@@ -21,17 +21,22 @@ class BrandByType extends Component
     }
 
     public
-        $paginate = 10,
-        $sortBy = 'brands.id',
+        $paginate = 40,
+        $sortBy = 'items.id',
         $sortDirection = 'desc';
 
     public function render()
     {
         $this->node = Node::where('type_id', $this->type->id)->first();
 
-        $data = Brand::where('node_id', $this->node->id)
-            ->orderBy($this->sortBy, $this->sortDirection)
-            ->paginate($this->paginate);
+        // $data = Brand::where('node_id', $this->node->id)
+        //     ->orderBy($this->sortBy, $this->sortDirection)
+        //     ->paginate($this->paginate);
+
+        $data = Item::where('node_id', $this->node->id)
+            ->select('brand')
+            ->groupBy('brand')
+            ->get();
 
         return view('livewire.client.brand-by-type', [
             'brands' => $data
