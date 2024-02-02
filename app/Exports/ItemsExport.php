@@ -39,6 +39,7 @@ class ItemsExport implements FromCollection
             'image_3',
             'image_4',
             'image_5',
+            'image_6',
             'selling_price',
             'mrp',
             'description',
