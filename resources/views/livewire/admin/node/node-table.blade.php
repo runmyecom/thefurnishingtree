@@ -62,7 +62,7 @@
               <tr>
                   <td class="h-px w-px whitespace-nowrap bg-gray-50 border-r">
                       <div class="px-6 py-3">
-                          <span class="text-sm rounded-lg">{{ $item->uuid }}</span>
+                          <span class="text-sm rounded-lg">{{ $item->id }}</span>
                       </div>
                   </td>
                   <td class="h-px w-px whitespace-nowrap">

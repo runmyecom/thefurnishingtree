@@ -3,9 +3,10 @@
 namespace App\Exports;
 
 use App\Models\Item;
+use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
-class ItemsExport implements FromCollection
+class ItemsExport implements FromCollection, WithHeadings
 {
     public function headings(): array
     {

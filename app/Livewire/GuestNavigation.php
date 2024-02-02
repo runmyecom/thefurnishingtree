@@ -22,7 +22,7 @@ class GuestNavigation extends Component
             $results = Item::where('item_name', 'like', '%'.$this->search.'%')->limit(7)->get();
         }
 
-        $categories = Category::all();
+        $categories = Category::skip(4)->take(10)->get();
         return view('livewire.guest-navigation', [
             'categories' => $categories,
             'items' => $results

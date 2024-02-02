@@ -15,7 +15,10 @@ class Categories extends Component
     public function render()
     {
         return view('livewire.client.categories',[
-            'categories' => Category::all()
+            'categories' => Category::offset(0)
+                ->limit(4)
+                ->orderBy('id','ASC')
+                ->get()
         ]);
     }
 
