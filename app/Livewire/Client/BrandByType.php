@@ -9,15 +9,14 @@ use App\Models\Brand;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
 
-#[Layout('layouts.guest')]
+#[Layout('layouts.app')]
 class BrandByType extends Component
 {
-    public $type;
     public $node;
 
-    public function mount($id)
+    public function mount($type_name)
     {
-        $this->type = Type::find($id);
+        $this->node = Node::where('type_name', $type_name)->firstOrFail();
     }
 
     public
@@ -27,7 +26,7 @@ class BrandByType extends Component
 
     public function render()
     {
-        $this->node = Node::where('type_id', $this->type->id)->first();
+        // $this->node = Node::where('type_name', $this->slug)->first();
 
         // $data = Brand::where('node_id', $this->node->id)
         //     ->orderBy($this->sortBy, $this->sortDirection)
@@ -39,7 +38,8 @@ class BrandByType extends Component
             ->get();
 
         return view('livewire.client.brand-by-type', [
-            'brands' => $data
+            'brands' => $data,
+            'type_name' => $this->node->type_name
         ]);
     }
 }

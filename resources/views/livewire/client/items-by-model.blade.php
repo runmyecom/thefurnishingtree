@@ -4,49 +4,32 @@
         <div class="py-8 w-full">
             <ol class="flex items-center whitespace-nowrap" aria-label="Breadcrumb">
                 <li class="inline-flex items-center">
-                    <button class="text-sm text-gray-500">{{ $item->model->size->color->material->brand->node->subcategory_name }}</button>
-                </li>
-                @if ($item->model->size->color->material->brand->node->type_id)
-                    <li class="inline-flex items-center">
-                        <x-icons.arrowright class="flex-shrink-0 h-4 w-4 text-gray-400 mx-2" />
-                        <button class="text-sm text-gray-500">{{ $item->model->size->color->material->brand->node->type_name }}</button>
-                    </li>
-                @endif
-                <li class="inline-flex items-center">
-                    @if ($item->model->size->color->material->brand->node->type_id)
-                        <a href="{{ route('brand-by-type', $item->model->size->color->material->brand->node->type_id) }}" class="flex items-center text-sm text-gray-500 hover:text-gray-800">
-                            <x-icons.arrowright class="flex-shrink-0 h-4 w-4 text-gray-400 mx-2" />
-                            {{ $item->model->size->color->material->brand->name }}
-                        </a>
-                    @else
-                        <a href="{{ route('brand-by-sub-category', $item->model->size->color->material->brand->node->subcategory_id) }}" class="flex items-center text-sm text-gray-500 hover:text-gray-800">
-                            <x-icons.arrowright class="flex-shrink-0 h-4 w-4 text-gray-400 mx-2" />
-                            {{ $item->model->size->color->material->brand->name }}
-                        </a>
-                    @endif
-                </li>
-                <li class="inline-flex items-center">
-                    <a href="{{ route('material-by-brand', $item->model->size->color->material->brand->id ) }}" class="flex items-center text-sm text-gray-500 hover:text-gray-800">
-                        <x-icons.arrowright class="flex-shrink-0 h-4 w-4 text-gray-400 mx-2" />
-                        {{ $item->model->size->color->material->name }}
+                    <a href="" class="flex items-center text-sm text-gray-500 hover:text-gray-800">
+                        {{ $brand }}
                     </a>
                 </li>
                 <li class="inline-flex items-center">
-                    <a href="{{ route('color-by-material', $item->model->size->color->material->id ) }}" class="flex items-center text-sm text-gray-500 hover:text-gray-800">
+                    <a href="" class="flex items-center text-sm text-gray-500 hover:text-gray-800">
                         <x-icons.arrowright class="flex-shrink-0 h-4 w-4 text-gray-400 mx-2" />
-                        {{ $item->model->size->color->name }}
+                        {{ $material }}
                     </a>
                 </li>
                 <li class="inline-flex items-center">
-                    <a href="{{ route('size-by-color', $item->model->size->color->id ) }}" class="flex items-center text-sm text-gray-500 hover:text-gray-800">
+                    <a href="" class="flex items-center text-sm text-gray-500 hover:text-gray-800">
                         <x-icons.arrowright class="flex-shrink-0 h-4 w-4 text-gray-400 mx-2" />
-                        {{ $item->model->size->name }}
+                        {{ $color }}
                     </a>
                 </li>
                 <li class="inline-flex items-center">
-                    <a href="{{ route('model-by-size', $item->model->size->id ) }}" class="flex items-center text-sm text-gray-800 font-semibold ">
+                    <a href="" class="flex items-center text-sm text-gray-500 hover:text-gray-800">
                         <x-icons.arrowright class="flex-shrink-0 h-4 w-4 text-gray-400 mx-2" />
-                        {{ $item->model->name }}
+                        {{ $size }}
+                    </a>
+                </li>
+                <li class="inline-flex items-center">
+                    <a href="" class="flex items-center text-sm text-gray-500 hover:text-gray-800">
+                        <x-icons.arrowright class="flex-shrink-0 h-4 w-4 text-gray-400 mx-2" />
+                        {{ $model }}
                     </a>
                 </li>
             </ol>
@@ -60,7 +43,7 @@
                     <div class="w-full">
                         <section class="">
                             <div class="text-2xl">{{ $item->item_name }}</div>
-                            <p class="font-semibold text-blue-600">Brand: {{ $item->model->size->color->material->brand->name }}</p>
+                            <p class="font-semibold text-blue-600">Brand: {{ $item->brand }}</p>
                         </section>
                         <hr class="my-5" />
                         <section>

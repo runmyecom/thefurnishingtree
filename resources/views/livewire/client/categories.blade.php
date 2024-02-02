@@ -22,7 +22,7 @@
     @if($types != null)
     <div class="flex items-center gap-1 rounded shadow p-2 w-full overflow-x-auto types absolute top-[101px] bg-white z-50">
             @foreach ($types as $type)
-                <a href="{{ route('brand-by-type', $type->id) }}" class="flex items-center justify-center text-sm border-2 border-transparent rounded-lg focus:outline-none transition hover:bg-gray-100 px-3 py-1 w-full">
+                <a href="{{ route('brand-by-type', $type->slug) }}" class="flex items-center justify-center text-sm border-2 border-transparent rounded-lg focus:outline-none transition hover:bg-gray-100 px-3 py-1 w-full">
                     {{ $type->name }}
                 </a>
             @endforeach

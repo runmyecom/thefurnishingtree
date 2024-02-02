@@ -146,12 +146,13 @@ Route::middleware([
 
     // Client FrontStore
     Route::get('/item/sub-category/{id}', BrandByCategory::class)->name('brand-by-sub-category'); //sub_category_id
-    Route::get('/item/type/{id}', BrandByType::class)->name('brand-by-type'); //type_id
-    Route::get('/item/brand/{id}', MaterialByBrand::class)->name('material-by-brand'); //brand_id
-    Route::get('/item/color/{id}', ColorByMaterial::class)->name('color-by-material'); //material_id
-    Route::get('/item/size/{id}', SizeByColor::class)->name('size-by-color');  //color_id
-    Route::get('/item/model/{id}', ModelBySize::class)->name('model-by-size'); //size_id
-    Route::get('/item/{id}', ItemsByModel::class)->name('item-by-model'); //model_id
+    Route::get('/item/{type_name}', BrandByType::class)->name('brand-by-type'); //type_id
+    Route::get('/item/{type_name}/{brand}', MaterialByBrand::class)->name('material-by-brand'); //brand_id
+    Route::get('/item/{type_name}/{brand}/{material}', ColorByMaterial::class)->name('color-by-material'); //material_id
+    Route::get('/item/{type_name}/{brand}/{material}/{color}', SizeByColor::class)->name('size-by-color');  //color_id
+    Route::get('/item/{type_name}/{brand}/{material}/{color}/{size}', ModelBySize::class)->name('model-by-size'); //size_id
+    Route::get('/item/{type_name}/{brand}/{material}/{color}/{size}/{model}', ItemsByModel::class)->name('item-by-model'); //model_id
+
 
     // Shopping Cart
     Route::get('/shopping-cart', ShoppingCart::class)->name('shopping-cart');

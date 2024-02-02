@@ -4,21 +4,31 @@ namespace App\Livewire\Client;
 
 use App\Models\Cart;
 use App\Models\Item;
+use App\Models\Node;
 use App\Models\Size;
 use Livewire\Component;
-use App\Models\ItemModel;
 use Livewire\Attributes\Layout;
 
-#[Layout('layouts.guest')]
+#[Layout('layouts.app')]
 class ItemsByModel extends Component
 {
     public $qty = 1;
+    public $node;
+    public $brand;
+    public $material;
+    public $color;
+    public $size;
     public $model;
     public $search;
 
-    public function mount($id)
+    public function mount($type_name, $brand, $material, $color, $size, $model)
     {
-        $this->model = ItemModel::find($id);
+        $this->node = Node::where('type_name', $type_name)->firstOrFail();
+        $this->brand = $brand;
+        $this->$material = $material;
+        $this->$color = $color;
+        $this->$size = $size;
+        $this->$model = $model;
     }
 
     public
@@ -28,13 +38,18 @@ class ItemsByModel extends Component
 
     public function render()
     {
-        $data = Item::where('item_name', 'like', '%'.$this->search.'%')
-            ->where('model_id', $this->model->id)
+        $data = Item::where('model', str_replace('-', ' ', ucwords($this->model)))
             ->first();
 
         $calcdiscount = $data->selling_price / $data->mrp * 100;
 
         return view('livewire.client.items-by-model',[
+            'type_name' => $this->node->type_name,
+            'brand' => $this->brand,
+            'material' => $this->material,
+            'color' => $this->color,
+            'size' => $this->size,
+            'model' => $this->model,
             'item' => $data,
             'discount' => round($calcdiscount)
         ]);
