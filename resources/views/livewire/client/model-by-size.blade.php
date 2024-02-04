@@ -13,7 +13,7 @@
                             href=
                             "{{
                                 route(
-                                'item-by-model',
+                                'item-models',
                                 [
                                     $type_name,
                                     str_replace(' ', '-', strtolower($brand)),

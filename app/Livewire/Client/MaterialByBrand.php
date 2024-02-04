@@ -15,7 +15,7 @@ class MaterialByBrand extends Component
     public $node;
     public $brand;
 
-    public function mount($type_name, $brand)
+    public function mount($type_name = null, $brand = null)
     {
         $this->node = Node::where('type_name', $type_name)->firstOrFail();
         $this->brand = $brand;

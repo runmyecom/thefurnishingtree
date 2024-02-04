@@ -13,7 +13,7 @@
                             href=
                             "{{
                                 route(
-                                'size-by-color',
+                                'item-sizes',
                                 [
                                     $type_name,
                                     str_replace(' ', '-', strtolower($brand)),

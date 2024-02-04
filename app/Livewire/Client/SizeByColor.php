@@ -4,8 +4,6 @@ namespace App\Livewire\Client;
 
 use App\Models\Item;
 use App\Models\Node;
-use App\Models\Size;
-use App\Models\Color;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
 
@@ -17,7 +15,7 @@ class SizeByColor extends Component
     public $material;
     public $color;
 
-    public function mount($type_name, $brand, $material, $color)
+    public function mount($type_name = null, $brand = null, $material = null, $color = null)
     {
         $this->node = Node::where('type_name', $type_name)->firstOrFail();
         $this->brand = $brand;

@@ -21,7 +21,7 @@ class ItemsByModel extends Component
     public $model;
     public $search;
 
-    public function mount($type_name, $brand, $material, $color, $size, $model)
+    public function mount($type_name = null, $brand = null, $material = null, $color = null, $size = null, $model = null)
     {
         $this->node = Node::where('type_name', $type_name)->firstOrFail();
         $this->brand = $brand;
