@@ -99,63 +99,64 @@ Route::get('/products/create', CreateProduct::class);
 
 // Admin - Category | Sub-Category | Material | Brand | Sizes | Model | Inventory Route
 
+Route::get('/orders', OrderIndex::class)->name('order.index');
+
+Route::get('/category', CategoryIndex::class)->name('category.index');
+Route::get('/category/bulk-upload', CategoryBulk::class);
+Route::get('/category/bulk-update', CategoryBulkUpdate::class);
+Route::get('/category/bulk-delete', CategoryBulkDelete::class);
+
+Route::get('/sub-category', SubIndex::class)->name('sub_category.index');
+Route::get('/sub-category/bulk-upload', SubCategoryBulkUpload::class);
+Route::get('/sub-category/bulk-update', SubCategoryBulkUpdate::class);
+Route::get('/sub-category/bulk-delete', SubCategoryBulkDelete::class);
+
+Route::get('/types', TypeIndex::class)->name('type.index');
+Route::get('/types/bulk-upload', TypeBulkUpload::class);
+Route::get('/types/bulk-update', TypeBulkUpdate::class);
+Route::get('/types/bulk-delete', TypeBulkDelete::class);
+
+Route::get('/brands', BrandIndex::class)->name('brand.index');
+Route::get('/brands/bulk-upload', BrandBulkUpload::class);
+Route::get('/brands/bulk-update', BrandBulkUpdate::class);
+Route::get('/brands/bulk-delete', BulkDelete::class);
+
+Route::get('/material', MaterialIndex::class)->name('material.index');
+Route::get('/material/bulk-upload', MaterialBulkUpload::class);
+Route::get('/material/bulk-update', MaterialBulkUpdate::class);
+Route::get('/material/bulk-delete', MaterialBulkDelete::class);
+
+Route::get('/colors', ColorIndex::class)->name('color.index');
+Route::get('/colors/bulk-upload', ColorBulkUpload::class);
+Route::get('/colors/bulk-update', ColorBulkUpdate::class);
+Route::get('/colors/bulk-delete', ColorBulkDelete::class);
+
+Route::get('/sizes', SizeIndex::class)->name('size.index');
+Route::get('/sizes/bulk-upload', SizeBulkUpload::class);
+Route::get('/sizes/bulk-update', SizeBulkUpdate::class);
+Route::get('/sizes/bulk-delete', SizeBulkDelete::class);
+
+Route::get('/models', ModelIndex::class)->name('model.index');
+Route::get('/models/bulk-upload', ModelBulkUpload::class);
+Route::get('/models/bulk-update', ModelBulkUpdate::class);
+Route::get('/models/bulk-delete', ModelBulkDelete::class);
+
+Route::get('/items', ItemIndex::class)->name('item.index');
+Route::get('/items/bulk-upload', ItemBulkUpload::class);
+Route::get('/items/bulk-update', ItemBulkUpdate::class);
+Route::get('/items/bulk-delete', ItemBulkDelete::class);
+
+Route::get('/nodes', NodeIndex::class)->name('node.index');
+
+// Shopping Cart
+Route::get('/shopping-cart', ShoppingCart::class)->name('shopping-cart');
+Route::get('/checkout', Checkout::class)->name('checkout');
+Route::get('/thank-you', ThankYou::class)->name('thank-you');
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/orders', OrderIndex::class)->name('order.index');
-
-    Route::get('/category', CategoryIndex::class)->name('category.index');
-    Route::get('/category/bulk-upload', CategoryBulk::class);
-    Route::get('/category/bulk-update', CategoryBulkUpdate::class);
-    Route::get('/category/bulk-delete', CategoryBulkDelete::class);
-
-    Route::get('/sub-category', SubIndex::class)->name('sub_category.index');
-    Route::get('/sub-category/bulk-upload', SubCategoryBulkUpload::class);
-    Route::get('/sub-category/bulk-update', SubCategoryBulkUpdate::class);
-    Route::get('/sub-category/bulk-delete', SubCategoryBulkDelete::class);
-
-    Route::get('/types', TypeIndex::class)->name('type.index');
-    Route::get('/types/bulk-upload', TypeBulkUpload::class);
-    Route::get('/types/bulk-update', TypeBulkUpdate::class);
-    Route::get('/types/bulk-delete', TypeBulkDelete::class);
-
-    Route::get('/brands', BrandIndex::class)->name('brand.index');
-    Route::get('/brands/bulk-upload', BrandBulkUpload::class);
-    Route::get('/brands/bulk-update', BrandBulkUpdate::class);
-    Route::get('/brands/bulk-delete', BulkDelete::class);
-
-    Route::get('/material', MaterialIndex::class)->name('material.index');
-    Route::get('/material/bulk-upload', MaterialBulkUpload::class);
-    Route::get('/material/bulk-update', MaterialBulkUpdate::class);
-    Route::get('/material/bulk-delete', MaterialBulkDelete::class);
-
-    Route::get('/colors', ColorIndex::class)->name('color.index');
-    Route::get('/colors/bulk-upload', ColorBulkUpload::class);
-    Route::get('/colors/bulk-update', ColorBulkUpdate::class);
-    Route::get('/colors/bulk-delete', ColorBulkDelete::class);
-
-    Route::get('/sizes', SizeIndex::class)->name('size.index');
-    Route::get('/sizes/bulk-upload', SizeBulkUpload::class);
-    Route::get('/sizes/bulk-update', SizeBulkUpdate::class);
-    Route::get('/sizes/bulk-delete', SizeBulkDelete::class);
-
-    Route::get('/models', ModelIndex::class)->name('model.index');
-    Route::get('/models/bulk-upload', ModelBulkUpload::class);
-    Route::get('/models/bulk-update', ModelBulkUpdate::class);
-    Route::get('/models/bulk-delete', ModelBulkDelete::class);
-
-    Route::get('/items', ItemIndex::class)->name('item.index');
-    Route::get('/items/bulk-upload', ItemBulkUpload::class);
-    Route::get('/items/bulk-update', ItemBulkUpdate::class);
-    Route::get('/items/bulk-delete', ItemBulkDelete::class);
-
-    Route::get('/nodes', NodeIndex::class)->name('node.index');
-
-    // Shopping Cart
-    Route::get('/shopping-cart', ShoppingCart::class)->name('shopping-cart');
-    Route::get('/checkout', Checkout::class)->name('checkout');
-    Route::get('/thank-you', ThankYou::class)->name('thank-you');
 
 });
