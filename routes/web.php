@@ -83,6 +83,16 @@ Route::middleware([
     })->name('dashboard');
 });
 
+// Client FrontStore
+Route::get('/{type_name}/{brand}/{material}/{color}/{size}/{model}', ItemsByModel::class)->name('item-by-model');
+Route::get('/{type_name}/{brand}/{material}/{color}/{size}', ModelBySize::class)->name('model-by-size');
+Route::get('/{type_name}/{brand}/{material}/{color}', SizeByColor::class)->name('size-by-color');
+Route::get('/{type_name}/{brand}/{material}', ColorByMaterial::class)->name('color-by-material');
+Route::get('/{type_name}/{brand}', MaterialByBrand::class)->name('material-by-brand');
+Route::get('/{type_name}', BrandByType::class)->name('brand-by-type');
+Route::get('/sub-category/{id}', BrandByCategory::class)->name('brand-by-sub-category');
+
+
 
 // Admin - Product Route
 Route::get('/products', Products::class)->name('product.index');
@@ -143,16 +153,6 @@ Route::middleware([
     Route::get('/items/bulk-delete', ItemBulkDelete::class);
 
     Route::get('/nodes', NodeIndex::class)->name('node.index');
-
-    // Client FrontStore
-    Route::get('/item/sub-category/{id}', BrandByCategory::class)->name('brand-by-sub-category'); //sub_category_id
-    Route::get('/item/{type_name}', BrandByType::class)->name('brand-by-type'); //type_id
-    Route::get('/item/{type_name}/{brand}', MaterialByBrand::class)->name('material-by-brand'); //brand_id
-    Route::get('/item/{type_name}/{brand}/{material}', ColorByMaterial::class)->name('color-by-material'); //material_id
-    Route::get('/item/{type_name}/{brand}/{material}/{color}', SizeByColor::class)->name('size-by-color');  //color_id
-    Route::get('/item/{type_name}/{brand}/{material}/{color}/{size}', ModelBySize::class)->name('model-by-size'); //size_id
-    Route::get('/item/{type_name}/{brand}/{material}/{color}/{size}/{model}', ItemsByModel::class)->name('item-by-model'); //model_id
-
 
     // Shopping Cart
     Route::get('/shopping-cart', ShoppingCart::class)->name('shopping-cart');
