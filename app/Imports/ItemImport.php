@@ -23,12 +23,11 @@ class ItemImport implements ToModel, WithStartRow, WithBatchInserts, WithChunkRe
 
     public function model(array $row)
     {
-        $data = Item::where('sku', $row[1])->first();
+        $data = Item::where('sku', $row[0])->first();
 
         if ($data) {
             return;
         } else {
-
             return new Item([
                 'sku' => $row[0],
                 'item_name' => $row[1],
