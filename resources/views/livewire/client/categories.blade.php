@@ -39,7 +39,9 @@
                                     x-transition:enter-start="transform opacity-0 scale-95">
                                     @foreach ($types as $type)
                                         <li>
-                                            <a href="{{ route('brand-by-type', $type->slug) }}">{{ $type->name }}</a>
+                                            <a href="{{ route('item-brands', $type->slug) }}">
+                                                <button class="w-full">{{ $type->name }}</button>
+                                            </a>
                                         </li>
                                     @endforeach
                                 </div>

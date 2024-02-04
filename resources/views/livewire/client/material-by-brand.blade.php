@@ -10,7 +10,7 @@
                 <div class="grid grid-cols-4 gap-5">
                     @foreach ($materials as $material)
                         <a
-                            href="{{ route('color-by-material', [$type_name, str_replace(' ', '-', strtolower($brand)), str_replace(' ', '-', strtolower($material->material))]) }}"
+                            href="{{ route('item-material', [str_replace(' ', '-', strtolower($material->material))]) }}"
                             class="shadow rounded-lg bg-white p-2"
                         >{{ $material->material }}</a>
                     @endforeach

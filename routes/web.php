@@ -150,12 +150,11 @@ Route::middleware([
 
 
 // Client FrontStore
-Route::name('i')->group(function () {
-    Route::get('/sub-category/{id}', BrandByCategory::class)->name('brand-by-sub-category');
-    Route::get('/{type_name}', BrandByType::class)->name('brand-by-type');
-    Route::get('/{type_name}/{brand}', MaterialByBrand::class)->name('material-by-brand');
-    Route::get('/{type_name}/{brand}/{material}', ColorByMaterial::class)->name('color-by-material');
-    Route::get('/{type_name}/{brand}/{material}/{color}', SizeByColor::class)->name('size-by-color');
-    Route::get('/{type_name}/{brand}/{material}/{color}/{size}', ModelBySize::class)->name('model-by-size');
-    Route::get('/{type_name}/{brand}/{material}/{color}/{size}/{model}', ItemsByModel::class)->name('item-by-model');
+Route::prefix('i')->group(function () {
+    Route::get('/type/{type_name}', BrandByType::class)->name('item-brands');
+    Route::get('/brand/{brand}', MaterialByBrand::class)->name('item-materials');
+    Route::get('/material/{material}', ColorByMaterial::class)->name('item-colors');
+    Route::get('/color/{color}', SizeByColor::class)->name('item-sizes');
+    Route::get('/size/{size}', ModelBySize::class)->name('item-models');
+    Route::get('/model/{model}', ItemsByModel::class)->name('item');
 });
