@@ -85,12 +85,12 @@ Route::middleware([
 
 // Client FrontStore
 Route::get('/sub-category/{id}', BrandByCategory::class)->name('brand-by-sub-category');
-Route::get('/type/{type_name}', BrandByType::class)->name('brand-by-type');
-Route::get('/brand/{brand}', MaterialByBrand::class)->name('material-by-brand');
-Route::get('/material/{material}', ColorByMaterial::class)->name('color-by-material');
-Route::get('/color/{color}', SizeByColor::class)->name('size-by-color');
-Route::get('/size/{size}', ModelBySize::class)->name('model-by-size');
-Route::get('/model/{model}', ItemsByModel::class)->name('item-by-model');
+Route::get('/i/{type_name}', BrandByType::class)->name('brand-by-type');
+Route::get('/i/{type_name}/{brand}', MaterialByBrand::class)->name('material-by-brand');
+Route::get('/i/{type_name}/{brand}/{material}', ColorByMaterial::class)->name('color-by-material');
+Route::get('/i/{type_name}/{brand}/{material}/{color}', SizeByColor::class)->name('size-by-color');
+Route::get('/i/{type_name}/{brand}/{material}/{color}/{size}', ModelBySize::class)->name('model-by-size');
+Route::get('/i/{type_name}/{brand}/{material}/{color}/{size}/{model}', ItemsByModel::class)->name('item-by-model');
 
 
 // Admin - Product Route
@@ -102,7 +102,7 @@ Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
     'verified',
-])->group(function () {
+])->prefix('admin')->group(function () {
     Route::get('/orders', OrderIndex::class)->name('order.index');
 
     Route::get('/categories/all', CategoryIndex::class)->name('category.index');
