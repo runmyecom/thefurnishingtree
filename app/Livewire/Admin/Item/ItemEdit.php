@@ -12,18 +12,18 @@ class ItemEdit extends Component
 {
     public ItemForm $form;
 
-    public $modalEdit = false;
+    public $modalItemEdit = false;
 
     #[On('dispatch-item-table-edit')]
     public function set_item(Item $id)
     {
         $this->form->setItem($id);
-        $this->modalEdit = true;
+        $this->modalItemEdit = true;
     }
 
     public function edit()
     {
-        $this->validate();
+        // $this->validate();
         $update = $this->form->update();
 
         $this->dispatch('dispatch-item-create-edit')->to(ItemTable::class);

@@ -2,7 +2,6 @@
 
 use App\Models\Item;
 use App\Models\Node;
-use Livewire\Livewire;
 use App\Livewire\Checkout;
 use App\Livewire\ShoppingCart;
 use App\Livewire\Admin\Products;
@@ -181,6 +180,10 @@ Route::get('/find-node/{id}', function ($id) {
 });
 Route::get('/find-type/{id}', function ($id) {
     $node = Node::where('id', $id)->firstOrFail();
-    $data = Item::where('node_id', $node->id)->get();
-    dd($data);
+    $data = Item::where('node_id', $node->id)
+        ->select('brand')
+        ->groupBy('brand')
+        ->get();
+
+    return $data;
 });
