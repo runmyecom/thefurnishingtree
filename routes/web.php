@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Item;
+use App\Models\Node;
 use Livewire\Livewire;
 use App\Livewire\Checkout;
 use App\Livewire\ShoppingCart;
@@ -162,5 +163,11 @@ Route::name('item-')->group(function () {
 });
 
 Route::get('/testing/{id}', function ($id) {
-    dd($id);
+    $node = Node::where('type_name', $id)->firstOrFail();
+    $data = Item::where('node_id', $node->id)
+        ->select('brand')
+        ->groupBy('brand')
+        ->get();
+
+    dd($data);
 });
