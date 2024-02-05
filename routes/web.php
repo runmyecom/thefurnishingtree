@@ -163,11 +163,24 @@ Route::name('item-')->group(function () {
 });
 
 Route::get('/testing/{id}', function ($id) {
-    $node = Node::where('type_name', $id)->firstOrFail();
+    $node = Node::where('id', $id)->firstOrFail();
     $data = Item::where('node_id', $node->id)
         ->select('brand')
         ->groupBy('brand')
         ->get();
 
+    dd($node);
+});
+
+Route::get('/numb/{id}', function ($id) {
+    dd($id);
+});
+Route::get('/find-node/{id}', function ($id) {
+    $node = Node::where('id', $id)->firstOrFail();
+    dd($node);
+});
+Route::get('/find-type/{id}', function ($id) {
+    $node = Node::where('id', $id)->firstOrFail();
+    $data = Item::where('node_id', $node->id)->get();
     dd($data);
 });
