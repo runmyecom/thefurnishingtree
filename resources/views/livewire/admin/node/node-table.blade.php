@@ -58,25 +58,25 @@
 
       <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
           @isset($data)
-              @foreach ($data as $item)
+              @foreach ($data as $node)
               <tr>
                   <td class="h-px w-px whitespace-nowrap bg-gray-50 border-r">
                       <div class="px-6 py-3">
-                          <span class="text-sm rounded-lg">{{ $item->id }}</span>
+                          <span class="text-sm rounded-lg">{{ $node->id }}</span>
                       </div>
                   </td>
                   <td class="h-px w-px whitespace-nowrap">
                       <div class="px-6 py-3">
                         <span class="py-1 px-3 inline-flex items-center gap-x-1 text-xs font-medium bg-purple-50 border border-purple-200 text-purple-500 rounded-full">
-                          {{ $item->category_name }}
+                          {{ $node->category_name }}
                         </span>
                       </div>
                   </td>
                   <td class="h-px w-px whitespace-nowrap">
                       <div class="px-6 py-3">
-                        @if($item->subcategory_name)
+                        @if($node->subcategory_name)
                           <span class="py-1 px-3 inline-flex items-center gap-x-1 text-xs font-medium bg-orange-50 border border-orange-200 text-orange-500 rounded-full">
-                            {{ $item->subcategory_name }}
+                            {{ $node->subcategory_name }}
                           </span>
                         @endif
                       </div>
@@ -84,9 +84,9 @@
                   </td>
                   <td class="h-px w-px whitespace-nowrap">
                     <div class="px-6 py-3">
-                      @if($item->type_name)
+                      @if($node->type_name)
                       <span class="py-1 px-3 inline-flex items-center gap-x-1 text-xs font-medium bg-gray-50 border border-gray-200 text-gray-500 rounded-full">
-                        {{ $item->type_name }}
+                        {{ $node->type_name }}
                       </span>
                       @endif
                     </div>
@@ -99,12 +99,12 @@
                               </button>
                               <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden mt-2 divide-y divide-gray-200 min-w-[10rem] z-10 bg-white shadow-xl rounded-lg border border-gray-100" aria-labelledby="hs-table-dropdown-1">
                                   <div class="p-1">
-                                      <button type="button" class="w-full flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100" @click="$dispatch('dispatch-subitem-table-edit', { id: '{{ $item->id }}' })">
+                                      <button type="button" class="w-full flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100" @click="$dispatch('dispatch-node-table-edit', { id: '{{ $node->id }}' })">
                                           Edit
                                       </button>
                                   </div>
                                   <div class="p-1">
-                                      <button type="button" class="w-full flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-red-600 hover:bg-gray-100" @click="$dispatch('dispatch-subitem-table-delete', { id: '{{ $item->id }}', name: '{{ $item->name }}' })">
+                                      <button type="button" class="w-full flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm text-red-600 hover:bg-gray-100" @click="$dispatch('dispatch-node-table-delete', { id: '{{ $node->id }}', name: '{{ $node->name }}' })">
                                           Delete
                                       </button>
                                   </div>

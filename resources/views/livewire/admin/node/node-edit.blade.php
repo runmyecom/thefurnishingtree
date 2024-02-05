@@ -26,17 +26,24 @@
 
                 <!-- Category name -->
                 <div class="col-span-12">
-                    <x-label for="form.name" value="Name" />
-                    <x-input wire:model="form.name" id="form.name" type="text" class="mt-1 block w-full" required autocomplete="form.name" />
-                    <x-input-error for="form.name" class="mt-1" />
+                    <x-label for="form.category_name" value="category_name" />
+                    <x-input wire:model="form.category_name" id="form.category_name" type="text" class="mt-1 block w-full" required autocomplete="form.category_name" />
+                    <x-input-error for="form.category_name" class="mt-1" />
                 </div>
 
                 <!-- Thumbnail -->
                 <div class="col-span-12">
-                    <x-label for="form.thumbnail" value="Thumbnail" />
-                    <x-input wire:model="form.thumbnail" id="form.thumbnail" type="text" class="mt-1 block w-full" autocomplete="form.thumbnail" />
-                    <x-input-error for="form.thumbnail" class="mt-1" />
+                    <x-label for="form.subcategory_name" value="subcategory_name" />
+                    <x-input wire:model="form.subcategory_name" id="form.subcategory_name" type="text" class="mt-1 block w-full" autocomplete="form.subcategory_name" />
+                    <x-input-error for="form.subcategory_name" class="mt-1" />
                 </div>
+
+                <div class="col-span-12">
+                    <x-label for="form.type_name" value="type_name" />
+                    <x-input wire:model="form.type_name" id="form.type_name" type="text" class="mt-1 block w-full" autocomplete="form.type_name" />
+                    <x-input-error for="form.type_name" class="mt-1" />
+                </div>
+
             </div>
         </x-slot>
 

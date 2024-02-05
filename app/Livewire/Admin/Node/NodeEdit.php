@@ -14,7 +14,7 @@ class NodeEdit extends Component
     public NodeForm $form;
 
     public $modalEdit = false;
-    
+
     public $resultDiv = false;
     public $search = "";
     public $results;
