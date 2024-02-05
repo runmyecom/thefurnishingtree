@@ -38,11 +38,11 @@ class TypeForm extends Form
         $node = new Node;
         // Type ID - Name
         $node->type_id = $type->id;
-        $node->type_name = $type->name;
+        $node->type_name = $type->slug;
         // Sub-Category ID - Name
         $node->subcategory_id = $type->subcategory_id;
         $sub_cat = SubCategory::where('id', $type->subcategory_id)->first();
-        $node->subcategory_name = $sub_cat->name;
+        $node->subcategory_name = $sub_cat->slug;
         // Category ID - Name
         $cat = Category::where('id', $sub_cat->category_id)->first();
         $node->category_id = $cat->id;
