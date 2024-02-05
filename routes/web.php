@@ -1,10 +1,8 @@
 <?php
 
-use App\Http\Controllers\FrontStoreController;
 use App\Models\Item;
+use Livewire\Livewire;
 use App\Livewire\Checkout;
-use App\Livewire\ImportSheet;
-use App\Livewire\Client\Items;
 use App\Livewire\ShoppingCart;
 use App\Livewire\Admin\Products;
 use App\Livewire\Client\BrandByType;
@@ -66,6 +64,10 @@ use App\Livewire\Admin\SubCategory\SubCategoryBulkUpload;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Livewire::setScriptRoute(function ($handle) {
+    return Route::get('/livewire/livewirejs', $handle);
+});
 
 Route::get('/', function () {
     $data = Item::paginate(4);
