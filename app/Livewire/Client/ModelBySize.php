@@ -16,9 +16,9 @@ class ModelBySize extends Component
     public $color;
     public $size;
 
-    public function mount($type_name = null, $brand = null, $material = null, $color = null, $size = null)
+    public function mount($type = null, $brand = null, $material = null, $color = null, $size = null)
     {
-        $this->node = Node::where('type_name', $type_name)->firstOrFail();
+        $this->node = Node::where('type_name', $type)->firstOrFail();
         $this->brand = $brand;
         $this->$material = $material;
         $this->$color = $color;
@@ -41,7 +41,7 @@ class ModelBySize extends Component
             ->get();
 
         return view('livewire.client.model-by-size', [
-            'type_name' => $this->node->type_name,
+            'type' => $this->node->type_name,
             'brand' => $this->brand,
             'material' => $this->material,
             'color' => $this->color,

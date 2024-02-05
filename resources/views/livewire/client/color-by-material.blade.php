@@ -15,7 +15,7 @@
                                 route(
                                 'item-sizes',
                                 [
-                                    $type_name,
+                                    $type,
                                     str_replace(' ', '-', strtolower($brand)),
                                     str_replace(' ', '-', strtolower($material)),
                                     str_replace(' ', '-', strtolower($color->color))

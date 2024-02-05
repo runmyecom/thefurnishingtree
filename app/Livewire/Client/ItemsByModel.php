@@ -21,9 +21,9 @@ class ItemsByModel extends Component
     public $model;
     public $search;
 
-    public function mount($type_name = null, $brand = null, $material = null, $color = null, $size = null, $model = null)
+    public function mount($type = null, $brand = null, $material = null, $color = null, $size = null, $model = null)
     {
-        $this->node = Node::where('type_name', $type_name)->firstOrFail();
+        $this->node = Node::where('type_name', $type)->firstOrFail();
         $this->brand = $brand;
         $this->$material = $material;
         $this->$color = $color;
@@ -44,7 +44,7 @@ class ItemsByModel extends Component
         $calcdiscount = $data->selling_price / $data->mrp * 100;
 
         return view('livewire.client.items-by-model',[
-            'type_name' => $this->node->type_name,
+            'type' => $this->node->type_name,
             'brand' => $this->brand,
             'material' => $this->material,
             'color' => $this->color,

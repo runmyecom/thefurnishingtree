@@ -15,9 +15,9 @@ class MaterialByBrand extends Component
     public $node;
     public $brand;
 
-    public function mount($type_name = null, $brand = null)
+    public function mount($type = null, $brand = null)
     {
-        $this->node = Node::where('type_name', $type_name)->firstOrFail();
+        $this->node = Node::where('type_name', $type)->firstOrFail();
         $this->brand = $brand;
     }
 
@@ -38,7 +38,7 @@ class MaterialByBrand extends Component
             ->get();
 
         return view('livewire.client.material-by-brand', [
-            'type_name' => $this->node->type_name,
+            'type' => $this->node->type_name,
             'brand' => $this->brand,
             'materials' => $data
         ]);

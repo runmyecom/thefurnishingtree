@@ -12,9 +12,9 @@ class BrandByType extends Component
 {
     public $node;
 
-    public function mount($type_name = null)
+    public function mount($type = null)
     {
-        $this->node = Node::where('type_name', $type_name)->firstOrFail();
+        $this->node = Node::where('type_name', $type)->firstOrFail();
     }
 
     public
@@ -37,7 +37,7 @@ class BrandByType extends Component
 
         return view('livewire.client.brand-by-type', [
             'brands' => $data,
-            'type_name' => $this->node->type_name
+            'type' => $this->node->type_name
         ]);
     }
 }

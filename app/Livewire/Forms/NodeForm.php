@@ -40,7 +40,7 @@ class NodeForm extends Form
         $this->reset();
     }
 
-    public function update(){ 
+    public function update(){
         $this->node->update($this->except('node'));
     }
 }

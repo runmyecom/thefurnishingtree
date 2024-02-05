@@ -12,7 +12,7 @@
                         <a
                             href="{{ route('item-colors',
                                 [
-                                    $type_name,
+                                    $type,
                                     str_replace(' ', '-', strtolower($brand)),
                                     str_replace(' ', '-', strtolower($material->material))
                                 ])

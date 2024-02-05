@@ -16,9 +16,9 @@ class ColorByMaterial extends Component
     public $brand;
     public $material;
 
-    public function mount($type_name = null, $brand = null, $material = null)
+    public function mount($type = null, $brand = null, $material = null)
     {
-        $this->node = Node::where('type_name', $type_name)->firstOrFail();
+        $this->node = Node::where('type_name', $type)->firstOrFail();
         $this->brand = $brand;
         $this->$material = $material;
     }
@@ -40,7 +40,7 @@ class ColorByMaterial extends Component
             ->get();
 
         return view('livewire.client.color-by-material', [
-            'type_name' => $this->node->type_name,
+            'type' => $this->node->type_name,
             'brand' => $this->brand,
             'material' => $this->material,
             'colors' => $data

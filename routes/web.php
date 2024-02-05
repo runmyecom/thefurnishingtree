@@ -65,9 +65,7 @@ use App\Livewire\Admin\SubCategory\SubCategoryBulkUpload;
 |
 */
 
-Livewire::setScriptRoute(function ($handle) {
-    return Route::get('/livewire/livewirejs', $handle);
-});
+
 
 Route::get('/', function () {
     $data = Item::paginate(4);
@@ -75,6 +73,7 @@ Route::get('/', function () {
         'items' => $data
     ]);
 });
+
 
 Route::middleware([
     'auth:sanctum',
@@ -151,14 +150,17 @@ Route::middleware([
     Route::get('/thank-you', ThankYou::class)->name('thank-you');
 });
 
-
 // Client FrontStore
 Route::name('item-')->group(function () {
     Route::get('/sub-category/{id?}', BrandByCategory::class)->name('brand-by-sub-category');
-    Route::get('/{type_name?}', BrandByType::class)->name('brands');
-    Route::get('/{type_name?}/{brand?}', MaterialByBrand::class)->name('materials');
-    Route::get('/{type_name?}/{brand?}/{material?}', ColorByMaterial::class)->name('colors');
-    Route::get('/{type_name?}/{brand?}/{material?}/{color?}', SizeByColor::class)->name('sizes');
-    Route::get('/{type_name?}/{brand?}/{material?}/{color?}/{size?}', ModelBySize::class)->name('models');
-    Route::get('/{type_name?}/{brand?}/{material?}/{color?}/{size?}/{model?}', ItemsByModel::class)->name('item-by-model');
+    Route::get('/i/{type?}', BrandByType::class)->name('brands');
+    Route::get('/i/{type?}/{brand?}', MaterialByBrand::class)->name('materials');
+    Route::get('/i/{type?}/{brand?}/{material?}', ColorByMaterial::class)->name('colors');
+    Route::get('/i/{type?}/{brand?}/{material?}/{color?}', SizeByColor::class)->name('sizes');
+    Route::get('/i/{type?}/{brand?}/{material?}/{color?}/{size?}', ModelBySize::class)->name('models');
+    Route::get('/i/{type?}/{brand?}/{material?}/{color?}/{size?}/{model?}', ItemsByModel::class)->name('item-by-model');
+});
+
+Route::get('/testing/{id}', function ($id) {
+    dd($id);
 });
