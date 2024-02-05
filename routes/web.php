@@ -162,5 +162,5 @@ Route::name('item-')->group(function () {
 });
 
 Route::get('/testing/{id}', function ($id) {
-    dd('id is', $id);
+    dd($id);
 });
