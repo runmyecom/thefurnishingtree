@@ -151,7 +151,12 @@ Route::middleware([
 
 
 // Client FrontStore
-
-
-
-Route::get('{type}', [FrontStoreController::class, 'brandsByType'])->name('brand-by-type');
+Route::name('item-')->group(function () {
+    Route::get('/sub-category/{id?}', BrandByCategory::class)->name('brand-by-sub-category');
+    Route::get('/{type_name?}', BrandByType::class)->name('brands');
+    Route::get('/{type_name?}/{brand?}', MaterialByBrand::class)->name('materials');
+    Route::get('/{type_name?}/{brand?}/{material?}', ColorByMaterial::class)->name('colors');
+    Route::get('/{type_name?}/{brand?}/{material?}/{color?}', SizeByColor::class)->name('sizes');
+    Route::get('/{type_name?}/{brand?}/{material?}/{color?}/{size?}', ModelBySize::class)->name('models');
+    Route::get('/{type_name?}/{brand?}/{material?}/{color?}/{size?}/{model?}', ItemsByModel::class)->name('item-by-model');
+});

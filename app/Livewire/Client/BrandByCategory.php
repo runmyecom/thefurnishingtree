@@ -14,7 +14,7 @@ class BrandByCategory extends Component
     public $subcategory;
     public $node;
 
-    public function mount($id)
+    public function mount($id = null)
     {
         $this->subcategory = SubCategory::find($id);
     }
