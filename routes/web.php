@@ -179,7 +179,9 @@ Route::get('/find-node/{id}', function ($id) {
     dd($node);
 });
 Route::get('/find-type/{id}', function ($id) {
-    $node = Node::where('id', $id)->firstOrFail();
+    // $node = Node::where('id', $id)->firstOrFail();
+    $node = Node::where('type_name', $id)->firstOrFail();
+
     $data = Item::where('node_id', $node->id)
         ->select('brand')
         ->groupBy('brand')
