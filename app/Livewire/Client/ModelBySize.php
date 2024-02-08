@@ -36,8 +36,12 @@ class ModelBySize extends Component
         //     ->orderBy($this->sortBy, $this->sortDirection)
         //     ->paginate($this->paginate);
         $data = Item::where('size', str_replace('-', ' ', ucwords($this->size)))
-            ->select('model')
-            ->groupBy('model')
+            ->where('color', str_replace('-', ' ', ucwords($this->color)))
+            ->where('material', str_replace('-', ' ', ucwords($this->material)))
+            ->where('brand', str_replace('-', ' ', ucwords($this->brand)))
+            ->where('node_id', $this->node->id)
+            ->select('model','image_1')
+            ->groupBy('model', 'image_1')
             ->get();
 
         return view('livewire.client.model-by-size', [

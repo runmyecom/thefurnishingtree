@@ -35,8 +35,10 @@ class ColorByMaterial extends Component
         //     ->paginate($this->paginate);
 
         $data = Item::where('material', str_replace('-', ' ', ucwords($this->material)))
-            ->select('color')
-            ->groupBy('color')
+            ->where('brand', str_replace('-', ' ', ucwords($this->brand)))
+            ->where('node_id', $this->node->id)
+            ->select('color', 'image_1')
+            ->groupBy('color', 'image_1')
             ->get();
 
         return view('livewire.client.color-by-material', [

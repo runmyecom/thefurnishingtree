@@ -32,9 +32,10 @@ class MaterialByBrand extends Component
         //     ->orderBy($this->sortBy, $this->sortDirection)
         //     ->paginate($this->paginate);
 
-        $data = Item::where('brand', 'Godrej')
-            ->select('material')
-            ->groupBy('material')
+        $data = Item::where('brand', str_replace('-', ' ', ucwords($this->brand)))
+            ->where('node_id', $this->node->id)
+            ->select('material', 'image_1')
+            ->groupBy('material', 'image_1')
             ->get();
 
         return view('livewire.client.material-by-brand', [

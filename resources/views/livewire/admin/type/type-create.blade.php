@@ -10,7 +10,7 @@
             <div class="grid grid-cols-12 gap-4">
                 <!-- Select Category -->
                 <div class="col-span-12">
-                    <x-label for="form.category_id" value="Select Category" />
+                    <x-label for="form.category_id" value="Select Sub-Category" />
                     <div class="search-box relative">
                         <x-input type='text' wire:model="search" wire:keyup="searchCategory" />
                         @if($resultDiv)
@@ -52,5 +52,5 @@
             </x-button>
         </x-slot>
     </x-dialog-form>
-   
+
 </div>

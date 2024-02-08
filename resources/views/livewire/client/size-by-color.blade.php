@@ -2,12 +2,12 @@
 
     <section class="max-w-7xl mx-auto w-full">
         <div class="py-8 w-full">
-
+            <livewire:client.breadcrumbs :type="$type" :brand="$brand" :material="$material" :color="$color" />
         </div>
         <div>
             @if($sizes)
-                <h2 class="my-2 text-xl font-fold">All Sizes</h2>
-                <div class="grid grid-cols-4 gap-5">
+                <h2 class="my-2 text-xl font-fold">All sizes in {{ $color }}</h2>
+                <div class="grid grid-cols-5 gap-5">
                     @foreach ($sizes as $size)
                         <a
                             href=
@@ -22,8 +22,11 @@
                                     str_replace(' ', '-', strtolower($size->size))
                                 ])
                             }}"
-                            class="shadow rounded-lg bg-white p-2"
-                        >{{ $size->size }}</a>
+                            class="shadow rounded-lg bg-white overflow-hidden"
+                        >
+                            <img src="{{ $size->image_1 }}" class="h-32 w-full object-cover">
+                            <div class="p-2 text-center">{{ $size->size }}</div>
+                        </a>
                     @endforeach
                 </div>
             @endif

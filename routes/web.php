@@ -1,58 +1,52 @@
 <?php
 
 use App\Models\Item;
-use App\Models\Node;
+
 use App\Livewire\Checkout;
 use App\Livewire\ShoppingCart;
-use App\Livewire\Admin\Products;
-use App\Livewire\Client\BrandByType;
-use App\Livewire\Client\ModelBySize;
-use App\Livewire\Client\SizeByColor;
-use App\Livewire\Admin\CreateProduct;
-use App\Livewire\Client\ItemsByModel;
+
 use Illuminate\Support\Facades\Route;
-use App\Livewire\Admin\Item\ItemIndex;
-use App\Livewire\Admin\Node\NodeIndex;
-use App\Livewire\Admin\Order\ThankYou;
-use App\Livewire\Admin\Size\SizeIndex;
-use App\Livewire\Admin\Type\TypeIndex;
-use App\Livewire\Admin\Brand\BrandIndex;
-use App\Livewire\Admin\Brand\BulkDelete;
-use App\Livewire\Admin\Color\ColorIndex;
-use App\Livewire\Admin\Model\ModelIndex;
-use App\Livewire\Admin\Order\OrderIndex;
+
+use App\Livewire\Client\ModelBySize;
+use App\Livewire\Client\BrandByType;
+use App\Livewire\Client\SizeByColor;
+use App\Livewire\Client\ItemsByModel;
 use App\Livewire\Client\BrandByCategory;
 use App\Livewire\Client\ColorByMaterial;
 use App\Livewire\Client\MaterialByBrand;
+
+use App\Livewire\Admin\Node\NodeIndex;
+
+use App\Livewire\Admin\Order\OrderIndex;
+use App\Livewire\Admin\Order\ThankYou;
+
+use App\Livewire\Admin\Item\ItemIndex;
 use App\Livewire\Admin\Item\ItemBulkDelete;
 use App\Livewire\Admin\Item\ItemBulkUpdate;
 use App\Livewire\Admin\Item\ItemBulkUpload;
-use App\Livewire\Admin\Size\SizeBulkDelete;
-use App\Livewire\Admin\Size\SizeBulkUpdate;
-use App\Livewire\Admin\Size\SizeBulkUpload;
-use App\Livewire\Admin\Type\TypeBulkDelete;
-use App\Livewire\Admin\Type\TypeBulkUpdate;
-use App\Livewire\Admin\Type\TypeBulkUpload;
-use App\Livewire\Admin\SubCategory\SubIndex;
-use App\Livewire\Admin\Brand\BrandBulkUpdate;
-use App\Livewire\Admin\Brand\BrandBulkUpload;
-use App\Livewire\Admin\Category\CategoryBulk;
-use App\Livewire\Admin\Color\ColorBulkDelete;
-use App\Livewire\Admin\Color\ColorBulkUpdate;
-use App\Livewire\Admin\Color\ColorBulkUpload;
-use App\Livewire\Admin\Model\ModelBulkDelete;
-use App\Livewire\Admin\Model\ModelBulkUpdate;
-use App\Livewire\Admin\Model\ModelBulkUpload;
+
 use App\Livewire\Admin\Category\CategoryIndex;
-use App\Livewire\Admin\Material\MaterialIndex;
+use App\Livewire\Admin\Category\CategoryBulk;
 use App\Livewire\Admin\Category\CategoryBulkDelete;
 use App\Livewire\Admin\Category\CategoryBulkUpdate;
-use App\Livewire\Admin\Material\MaterialBulkDelete;
-use App\Livewire\Admin\Material\MaterialBulkUpdate;
-use App\Livewire\Admin\Material\MaterialBulkUpload;
+
+use App\Livewire\Admin\SubCategory\SubIndex;
 use App\Livewire\Admin\SubCategory\SubCategoryBulkDelete;
 use App\Livewire\Admin\SubCategory\SubCategoryBulkUpdate;
 use App\Livewire\Admin\SubCategory\SubCategoryBulkUpload;
+
+use App\Livewire\Admin\Type\TypeIndex;
+use App\Livewire\Admin\Type\TypeBulkDelete;
+use App\Livewire\Admin\Type\TypeBulkUpdate;
+use App\Livewire\Admin\Type\TypeBulkUpload;
+
+use App\Livewire\Admin\Variants\BrandIndex;
+use App\Livewire\Admin\Variants\MaterialIndex;
+use App\Livewire\Admin\Variants\ColorIndex;
+use App\Livewire\Admin\Variants\SizeIndex;
+use App\Livewire\Admin\Variants\ModelIndex;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -85,10 +79,6 @@ Route::middleware([
     })->name('dashboard');
 });
 
-// Admin - Product Route
-Route::get('/products', Products::class)->name('product.index');
-Route::get('/products/create', CreateProduct::class);
-
 // Admin - Category | Sub-Category | Material | Brand | Sizes | Model | Inventory Route
 Route::middleware([
     'auth:sanctum',
@@ -112,37 +102,19 @@ Route::middleware([
     Route::get('/types/bulk-update', TypeBulkUpdate::class);
     Route::get('/types/bulk-delete', TypeBulkDelete::class);
 
-    Route::get('/brands/all', BrandIndex::class)->name('brand.index');
-    Route::get('/brands/bulk-upload', BrandBulkUpload::class);
-    Route::get('/brands/bulk-update', BrandBulkUpdate::class);
-    Route::get('/brands/bulk-delete', BulkDelete::class);
-
-    Route::get('/materials/all', MaterialIndex::class)->name('material.index');
-    Route::get('/material/bulk-upload', MaterialBulkUpload::class);
-    Route::get('/material/bulk-update', MaterialBulkUpdate::class);
-    Route::get('/material/bulk-delete', MaterialBulkDelete::class);
-
-    Route::get('/colors/all', ColorIndex::class)->name('color.index');
-    Route::get('/colors/bulk-upload', ColorBulkUpload::class);
-    Route::get('/colors/bulk-update', ColorBulkUpdate::class);
-    Route::get('/colors/bulk-delete', ColorBulkDelete::class);
-
-    Route::get('/sizes/all', SizeIndex::class)->name('size.index');
-    Route::get('/sizes/bulk-upload', SizeBulkUpload::class);
-    Route::get('/sizes/bulk-update', SizeBulkUpdate::class);
-    Route::get('/sizes/bulk-delete', SizeBulkDelete::class);
-
-    Route::get('/models/all', ModelIndex::class)->name('model.index');
-    Route::get('/models/bulk-upload', ModelBulkUpload::class);
-    Route::get('/models/bulk-update', ModelBulkUpdate::class);
-    Route::get('/models/bulk-delete', ModelBulkDelete::class);
-
     Route::get('/items/all', ItemIndex::class)->name('item.index');
     Route::get('/items/bulk-upload', ItemBulkUpload::class);
     Route::get('/items/bulk-update', ItemBulkUpdate::class);
     Route::get('/items/bulk-delete', ItemBulkDelete::class);
 
     Route::get('/nodes/all', NodeIndex::class)->name('node.index');
+
+    // Variants
+    Route::get('/brands/all', BrandIndex::class)->name('brand.index');
+    Route::get('/materials/all', MaterialIndex::class)->name('material.index');
+    Route::get('/colors/all', ColorIndex::class)->name('color.index');
+    Route::get('/sizes/all', SizeIndex::class)->name('size.index');
+    Route::get('/models/all', ModelIndex::class)->name('model.index');
 
     // Shopping Cart
     Route::get('/shopping-cart', ShoppingCart::class)->name('shopping-cart');
@@ -158,5 +130,5 @@ Route::name('item-')->group(function () {
     Route::get('/i/{type?}/{brand?}/{material?}', ColorByMaterial::class)->name('colors');
     Route::get('/i/{type?}/{brand?}/{material?}/{color?}', SizeByColor::class)->name('sizes');
     Route::get('/i/{type?}/{brand?}/{material?}/{color?}/{size?}', ModelBySize::class)->name('models');
-    Route::get('/i/{type?}/{brand?}/{material?}/{color?}/{size?}/{model?}', ItemsByModel::class)->name('item-by-model');
+    Route::get('/i/{type?}/{brand?}/{material?}/{color?}/{size?}/{model?}', ItemsByModel::class)->name('by-model');
 });

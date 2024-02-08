@@ -5,14 +5,14 @@
             <thead class="border-t">
                 <th scope="col" class="py-3 text-start w-[20%] pl-6">
                     <span class="text-[13px] font-semibold tracking-wide text-gray-800">
-                        Name
+                        SKU
                     </span>
                 </th>
 
                 <th scope="col" class="px-6 py-3 text-start">
                     <div class="flex gap-x-2">
                         <span class="text-[13px] font-semibold tracking-wide text-gray-800">
-                            Dimension
+                            Item Name
                         </span>
                     </div>
                 </th>
@@ -25,22 +25,6 @@
                     </div>
                 </th>
 
-                <th scope="col" class="px-6 py-3 text-start">
-                    <div class="flex gap-x-2">
-                        <span class="text-[13px] font-semibold tracking-wide text-gray-800">
-                            Item Model
-                        </span>
-                    </div>
-                </th>
-
-                <th scope="col" class="px-6 py-3 text-start">
-                    <div class="flex gap-x-2">
-                        <span class="text-[13px] font-semibold tracking-wide text-gray-800">
-                            Is Featured
-                        </span>
-                    </div>
-                </th>
-
                 <th scope="col" class="px-6 py-3 text-end"></th>
                 </tr>
             </thead>
@@ -48,22 +32,14 @@
             <tbody class="divide-y divide-gray-200">
                 @foreach($data as $item)
                 <tr class="text-[13px]">
-                    <td class="h-px w-[20%] pl-6">
-                        <div class="flex items-center gap-2">
-                            <span>{{ Str::limit($item->item_name, 45) }}</span>
-                        </div>
+                    <td class="h-px w-px">
+                        <div class="px-6">{{ Str::limit($item->sku, 50) }}</div>
                     </td>
                     <td class="h-px w-px whitespace-nowrap">
-                        <div class="px-6">{{ $item->dimension }}</div>
+                        <div class="px-6">{{ Str::limit($item->item_name, 50) }}</div>
                     </td>
                     <td class="h-px w-px whitespace-nowrap">
                         <div class="px-6">{{ $item->selling_price }}</div>
-                    </td>
-                    <td class="h-px w-px whitespace-nowrap">
-                        <div class="px-6">{{ $item->model }}</div>
-                    </td>
-                    <td class="h-px w-px whitespace-nowrap">
-                        <div class="px-6">{{ $item->is_featured }}</div>
                     </td>
                     <td class="h-px w-px whitespace-nowrap">
                         <div class="px-6 py-1.5">

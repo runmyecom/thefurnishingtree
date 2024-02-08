@@ -2,37 +2,7 @@
 
     <section class="max-w-7xl mx-auto w-full">
         <div class="py-8 w-full">
-            <ol class="flex items-center whitespace-nowrap" aria-label="Breadcrumb">
-                <li class="inline-flex items-center">
-                    <a href="" class="flex items-center text-sm text-gray-500 hover:text-gray-800">
-                        {{ $brand }}
-                    </a>
-                </li>
-                <li class="inline-flex items-center">
-                    <a href="" class="flex items-center text-sm text-gray-500 hover:text-gray-800">
-                        <x-icons.arrowright class="flex-shrink-0 h-4 w-4 text-gray-400 mx-2" />
-                        {{ $material }}
-                    </a>
-                </li>
-                <li class="inline-flex items-center">
-                    <a href="" class="flex items-center text-sm text-gray-500 hover:text-gray-800">
-                        <x-icons.arrowright class="flex-shrink-0 h-4 w-4 text-gray-400 mx-2" />
-                        {{ $color }}
-                    </a>
-                </li>
-                <li class="inline-flex items-center">
-                    <a href="" class="flex items-center text-sm text-gray-500 hover:text-gray-800">
-                        <x-icons.arrowright class="flex-shrink-0 h-4 w-4 text-gray-400 mx-2" />
-                        {{ $size }}
-                    </a>
-                </li>
-                <li class="inline-flex items-center">
-                    <a href="" class="flex items-center text-sm text-gray-500 hover:text-gray-800">
-                        <x-icons.arrowright class="flex-shrink-0 h-4 w-4 text-gray-400 mx-2" />
-                        {{ $model }}
-                    </a>
-                </li>
-            </ol>
+            <livewire:client.breadcrumbs :type="$type" :brand="$brand" :material="$material" :color="$color" :size="$size" :model="$model" />
         </div>
         <div class="w-full">
             @if($item)
@@ -43,7 +13,6 @@
                     <div class="w-full">
                         <section class="">
                             <div class="text-2xl">{{ $item->item_name }}</div>
-                            <p class="font-semibold text-blue-600">Brand: {{ $item->brand }}</p>
                         </section>
                         <hr class="my-5" />
                         <section>
@@ -55,7 +24,51 @@
                                 <span class="line-through">{{ $item->mrp }}</span>
                             </h3>
                         </section>
+
                         <hr class="my-5" />
+
+                        <section>
+                            <table class="">
+                                <tbody class="divide-y">
+                                    <tr class="w-full">
+                                        <td class="py-1">Brand</td>
+                                        <td class="px-4">:</td>
+                                        <td class="pl-5">{{ $item->brand }}</td>
+                                    </tr>
+                                    <tr class="w-full">
+                                        <td class="py-1">Material</td>
+                                        <td class="px-4">:</td>
+                                        <td class="pl-5">{{ $item->material }}</td>
+                                    </tr>
+                                    <tr class="w-full">
+                                        <td class="py-1">Color</td>
+                                        <td class="px-4">:</td>
+                                        <td class="pl-5">{{ $item->color }}</td>
+                                    </tr>
+                                    <tr class="w-full">
+                                        <td class="py-1">Item Size</td>
+                                        <td class="px-4">:</td>
+                                        <td class="pl-5">{{ $item->size }}</td>
+                                    </tr>
+                                    <tr class="w-full">
+                                        <td class="py-1">Item Model</td>
+                                        <td class="px-4">:</td>
+                                        <td class="pl-5">{{ $item->model }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            {{-- Custom Item Model --}}
+                            @if ($item->model === 'Other' || $item->model === 'other')
+                                <div class="flex items-center gap-5 border-t mt-5 pt-4">
+                                    <div>Enter your model number:</div>
+                                    <input type="text" placeholder="Enter model number" class="text-sm rounded-lg border-gray-300 focus:outline-none"/>
+                                </div>
+                            @endif
+                        </section>
+
+                        <hr class="my-5" />
+
                         <section>
                             <div class="flex items-center gap-6">
                                 <!-- Input Number -->

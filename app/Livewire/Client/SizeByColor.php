@@ -34,8 +34,11 @@ class SizeByColor extends Component
         //     ->orderBy($this->sortBy, $this->sortDirection)
         //     ->paginate($this->paginate);
         $data = Item::where('color', str_replace('-', ' ', ucwords($this->color)))
-            ->select('size')
-            ->groupBy('size')
+            ->where('material', str_replace('-', ' ', ucwords($this->material)))
+            ->where('brand', str_replace('-', ' ', ucwords($this->brand)))
+            ->where('node_id', $this->node->id)
+            ->select('size', 'image_1')
+            ->groupBy('size', 'image_1')
             ->get();
 
         return view('livewire.client.size-by-color', [
