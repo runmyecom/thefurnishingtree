@@ -30,15 +30,11 @@ class ColorByMaterial extends Component
 
     public function render()
     {
-        // $data = Color::where('material_id', $this->material->id)
-        //     ->orderBy($this->sortBy, $this->sortDirection)
-        //     ->paginate($this->paginate);
-
         $data = Item::where('material', str_replace('-', ' ', ucwords($this->material)))
             ->where('brand', str_replace('-', ' ', ucwords($this->brand)))
             ->where('node_id', $this->node->id)
-            ->select('color', 'image_1')
-            ->groupBy('color', 'image_1')
+            ->select('id', 'color', 'image_1')
+            ->groupBy('id', 'color', 'image_1')
             ->get();
 
         return view('livewire.client.color-by-material', [

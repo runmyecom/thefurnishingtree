@@ -30,9 +30,6 @@ class SizeByColor extends Component
 
     public function render()
     {
-        // $data = Size::where('color_id', $this->color->id)
-        //     ->orderBy($this->sortBy, $this->sortDirection)
-        //     ->paginate($this->paginate);
         $data = Item::where('color', str_replace('-', ' ', ucwords($this->color)))
             ->where('material', str_replace('-', ' ', ucwords($this->material)))
             ->where('brand', str_replace('-', ' ', ucwords($this->brand)))
