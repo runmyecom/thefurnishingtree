@@ -16,7 +16,7 @@ class ItemTable extends Component
 
     public ItemForm $form;
 
-    public 
+    public
         $paginate = 20,
         $sortBy = 'items.id',
         $sortDirection = 'desc';
@@ -28,7 +28,6 @@ class ItemTable extends Component
     {
         return view('livewire.admin.item.item-table', [
             'data' => Item::where('item_name', 'like', '%'.$this->form->item_name.'%')
-                ->with('model')
                 ->orderBy($this->sortBy, $this->sortDirection)
                 ->paginate($this->paginate)
         ]);

@@ -59,8 +59,7 @@ class ItemsExport implements FromCollection, WithHeadings
             'brand',
             'material',
             'color',
-            'size',
-            'model',
+
             'node_id'
         ];
     }
@@ -105,8 +104,6 @@ class ItemsExport implements FromCollection, WithHeadings
             'brand',
             'material',
             'color',
-            'size',
-            'model',
             'node_id'
         )->get();
     }

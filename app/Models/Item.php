@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\ItemSize;
 use App\Models\ItemModel;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
@@ -22,9 +23,9 @@ class Item extends Model
             ->saveSlugsTo('slug');
     }
 
-    public function model(): BelongsTo
+    public function sizes(): HasMany
     {
-        return $this->belongsTo(ItemModel::class);
+        return $this->hasMany(ItemSize::class);
     }
-    
+
 }

@@ -64,8 +64,6 @@ return new class extends Migration
             $table->string('brand')->nullable();
             $table->string('material')->nullable();
             $table->string('color')->nullable();
-            $table->string('size')->nullable();
-            $table->string('model')->nullable();
 
             $table->foreignId('node_id')
                 ->nullable()

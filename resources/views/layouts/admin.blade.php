@@ -66,6 +66,21 @@
                         </x-side-link>
                     </li>
                     <hr class="my-2"/>
+
+                    <li class="px-3">
+                        <x-side-link href="{{ route('size.index') }}" :active="request()->routeIs('size.index')">
+                            <x-icons.size class="w-5 h-5" />
+                            <span class="text-sm">Sizes</span>
+                        </x-side-link>
+                    </li>
+                    <li class="px-3">
+                        <x-side-link href="{{ route('model.index') }}" :active="request()->routeIs('model.index')">
+                            <x-icons.model class="w-5 h-5" />
+                            <span class="text-sm">Model</span>
+                        </x-side-link>
+                    </li>
+
+                    <hr class="my-2"/>
                     <li class="px-3">
                         <x-side-link href="{{ route('brand.index') }}" :active="request()->routeIs('brand.index')">
                             <x-icons.brand class="w-5 h-5" />
@@ -84,18 +99,7 @@
                             <span class="text-sm">Colors</span>
                         </x-side-link>
                     </li>
-                    <li class="px-3">
-                        <x-side-link href="{{ route('size.index') }}" :active="request()->routeIs('size.index')">
-                            <x-icons.size class="w-5 h-5" />
-                            <span class="text-sm">Sizes</span>
-                        </x-side-link>
-                    </li>
-                    <li class="px-3">
-                        <x-side-link href="{{ route('model.index') }}" :active="request()->routeIs('model.index')">
-                            <x-icons.model class="w-5 h-5" />
-                            <span class="text-sm">Model</span>
-                        </x-side-link>
-                    </li>
+
                     <hr class="my-2"/>
                     <li class="px-3">
                         <x-side-link href="{{ route('category.index') }}" :active="request()->routeIs('category.index')">

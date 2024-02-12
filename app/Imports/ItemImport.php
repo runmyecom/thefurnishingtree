@@ -76,9 +76,7 @@ class ItemImport implements ToModel, WithStartRow, WithBatchInserts, WithChunkRe
                 'brand' => $row[41],
                 'material' => $row[42],
                 'color' => $row[43],
-                'size' => $row[44],
-                'model' => $row[45],
-                'node_id' => $row[46]
+                'node_id' => $row[44]
             ]);
         }
 

@@ -63,9 +63,7 @@ class ItemUpdate implements ToCollection, WithStartRow, WithBatchInserts, WithCh
             $item->brand = $row[33];
             $item->material = $row[34];
             $item->color = $row[35];
-            $item->size = $row[36];
-            $item->model = $row[37];
-            $item->node_id = $row[38];
+            $item->node_id = $row[36];
             $item->save();
         }
     }
