@@ -5,43 +5,42 @@ use App\Models\Item;
 use App\Livewire\Checkout;
 use App\Livewire\ShoppingCart;
 
-use App\Livewire\Client\BrandByType;
+use App\Livewire\Client\ItemByType;
 
+use App\Livewire\Client\BrandByType;
 use App\Livewire\Client\ItemByColor;
-use App\Livewire\Client\ModelBySize;
-use App\Livewire\Client\SizeByColor;
 use App\Livewire\Client\ItemsByModel;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Admin\Item\ItemIndex;
+
 use App\Livewire\Admin\Node\NodeIndex;
 
 use App\Livewire\Admin\Order\ThankYou;
-
 use App\Livewire\Admin\Size\SizeIndex;
-use App\Livewire\Admin\Type\TypeIndex;
 
+use App\Livewire\Admin\Type\TypeIndex;
 use App\Livewire\Admin\Model\ModelIndex;
 use App\Livewire\Admin\Order\OrderIndex;
 use App\Livewire\Client\BrandByCategory;
-use App\Livewire\Client\ColorByMaterial;
 
+use App\Livewire\Client\ColorByMaterial;
 use App\Livewire\Client\MaterialByBrand;
 use App\Livewire\Admin\Item\ItemBulkDelete;
 use App\Livewire\Admin\Item\ItemBulkUpdate;
+
 use App\Livewire\Admin\Item\ItemBulkUpload;
 
 use App\Livewire\Admin\Size\SizeBulkDelete;
-
 use App\Livewire\Admin\Size\SizeBulkUpdate;
 use App\Livewire\Admin\Size\SizeBulkUpload;
 use App\Livewire\Admin\Type\TypeBulkDelete;
+
+
 use App\Livewire\Admin\Type\TypeBulkUpdate;
-
-
 use App\Livewire\Admin\Type\TypeBulkUpload;
 use App\Livewire\Admin\Variants\BrandIndex;
-use App\Livewire\Admin\Variants\ColorIndex;
 
+use App\Livewire\Admin\Variants\ColorIndex;
 use App\Livewire\Admin\SubCategory\SubIndex;
 use App\Livewire\Admin\Category\CategoryBulk;
 use App\Livewire\Admin\Model\ModelBulkDelete;
@@ -54,7 +53,7 @@ use App\Livewire\Admin\Category\CategoryBulkUpdate;
 use App\Livewire\Admin\SubCategory\SubCategoryBulkDelete;
 use App\Livewire\Admin\SubCategory\SubCategoryBulkUpdate;
 use App\Livewire\Admin\SubCategory\SubCategoryBulkUpload;
-
+use App\Livewire\Client\SingleItem;
 
 /*
 |--------------------------------------------------------------------------
@@ -139,7 +138,11 @@ Route::middleware([
 });
 
 // Client FrontStore
+Route::get('/{type?}', ItemByType::class)->name('itemListByType');
+Route::get('/single/{slug?}', SingleItem::class)->name('singleItem');
+
 Route::name('item-')->group(function () {
+
     Route::get('/sub-category/{id?}', BrandByCategory::class)->name('brand-by-sub-category');
     Route::get('/i/{type?}', BrandByType::class)->name('brands');
     Route::get('/i/{type?}/{brand?}', MaterialByBrand::class)->name('materials');

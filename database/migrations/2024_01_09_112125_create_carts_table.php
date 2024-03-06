@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('item_name')->nullable();
             $table->string('item_price')->nullable();
             $table->integer('quantity')->default(1);
-            $table->foreignId('item_id')->constrained()->onDelete('cascade');
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->integer('item_id')->nullable();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

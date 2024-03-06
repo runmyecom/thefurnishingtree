@@ -22,7 +22,7 @@
                     >
                         <ul class="[&>li]:text-gray-900 [&>li]:text-sm [&>li]:cursor-pointer [&>li]:px-2 [&>li]:py-1.5 [&>li]:rounded-md [&>li]:transition-all hover:[&>li]:bg-gray-50 active:[&>li]:bg-gray-50 active:[&>li]:scale-[0.99]">
                             @foreach ($sub_categories as $subcategory)
-                                <li class="flex items-center justify-between"
+                                <li class="flex items-center justify-between text-sm"
                                     x-on:click="menu = ! menu"
                                     @click.away="menu = false"
                                     wire:click="fetchType({{ $subcategory->id }})"
@@ -34,13 +34,13 @@
 
                             @if($types != null)
                                 <div
-                                    class="bg-white shadow rounded-md max-w-[180px] w-full p-2 absolute -left-[185px] top-0 [&>li]:text-gray-900 [&>li]:text-sm [&>li]:cursor-pointer [&>li]:px-2 [&>li]:py-1.5 [&>li]:rounded-md [&>li]:transition-all hover:[&>li]:bg-gray-50 active:[&>li]:bg-gray-50 active:[&>li]:scale-[0.99]"
+                                    class="bg-white shadow rounded-md max-w-[320px] w-full p-2 absolute -right-[185px] top-0 [&>li]:text-gray-900 [&>li]:text-sm [&>li]:cursor-pointer [&>li]:px-2 [&>li]:py-1.5 [&>li]:rounded-md [&>li]:transition-all hover:[&>li]:bg-gray-50 active:[&>li]:bg-gray-50 active:[&>li]:scale-[0.99]"
                                     x-transition:enter="transition ease-out duration-100"
                                     x-transition:enter-start="transform opacity-0 scale-95">
                                     @foreach ($types as $type)
                                         <li>
-                                            <a href="{{ route('item-brands', $type->slug) }}">
-                                                <button class="w-full">{{ $type->name }}</button>
+                                            <a href="{{ route('itemListByType', $type->slug) }}">
+                                                <button class="w-full text-left text-sm">{{ $type->name }}</button>
                                             </a>
                                         </li>
                                     @endforeach

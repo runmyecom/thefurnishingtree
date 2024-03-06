@@ -3,11 +3,17 @@
 namespace App\Imports;
 
 use App\Models\Item;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\Importable;
 use Illuminate\Contracts\Queue\ShouldQueue;
+use Maatwebsite\Excel\Concerns\SkipsErrors;
+use Maatwebsite\Excel\Concerns\SkipsOnError;
 use Maatwebsite\Excel\Concerns\WithStartRow;
+use Maatwebsite\Excel\Concerns\SkipsFailures;
 use Maatwebsite\Excel\Concerns\SkipsEmptyRows;
+use Maatwebsite\Excel\Concerns\SkipsOnFailure;
 use Maatwebsite\Excel\Concerns\WithProgressBar;
 use Maatwebsite\Excel\Concerns\WithBatchInserts;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
@@ -23,11 +29,15 @@ class ItemImport implements ToModel, WithStartRow, WithBatchInserts, WithChunkRe
 
     public function model(array $row)
     {
-        $data = Item::where('sku', $row[0])->first();
+        // $data = Item::where('sku', $row[0])->first();
 
-        if ($data) {
-            return;
-        } else {
+        $bin = DB::table('items')->get();
+        // Get all item slug from the $bin collection
+        $bin_slug = $bin->pluck('slug');
+
+        // Checking if the slug is already in the database
+        if($bin_slug->contains($row[2]) == false)
+        {
             return new Item([
                 'sku' => $row[0],
                 'item_name' => $row[1],
@@ -62,23 +72,30 @@ class ItemImport implements ToModel, WithStartRow, WithBatchInserts, WithChunkRe
                 'bullet_8' => $row[27],
                 'bullet_9' => $row[28],
                 'bullet_10' => $row[29],
+
                 'keyword' => $row[30],
+
                 'image_1' => $row[31],
                 'image_2' => $row[32],
                 'image_3' => $row[33],
                 'image_4' => $row[34],
                 'image_5' => $row[35],
                 'image_6' => $row[36],
+
                 'selling_price' => $row[37],
                 'mrp' => $row[38],
                 'description' => $row[39],
                 'is_featured' => $row[40],
+
                 'brand' => $row[41],
                 'material' => $row[42],
                 'color' => $row[43],
-                'node_id' => $row[44]
+                'size' => $row[44],
+                'model' => $row[45],
+                'node_id' => $row[46]
             ]);
         }
+        else null;
 
     }
 
