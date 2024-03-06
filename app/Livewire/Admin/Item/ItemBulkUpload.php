@@ -7,6 +7,7 @@ use App\Imports\ItemImport;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Layout;
 use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Concerns\SkipsErrors;
 
 #[Layout('layouts.admin')]
 class ItemBulkUpload extends Component
@@ -19,6 +20,7 @@ class ItemBulkUpload extends Component
     {
         Excel::import(new ItemImport, $this->sheet);
         return back()->with('status', 'Sheet Imported');
+
     }
 
     public function render()
