@@ -24,6 +24,8 @@
             <main class="border-t">
                 {{ $slot }}
             </main>
+
+            <livewire:guest-footer />
         </div>
 
         <x-notify />

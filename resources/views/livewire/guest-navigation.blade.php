@@ -1,4 +1,4 @@
-<div class="w-full shadow sticky top-0 bg-white">
+<div class="w-full shadow bg-white">
     <nav class="bg-white w-full">
         <div class="flex items-center justify-between max-w-7xl mx-auto">
             <a href="/" class="logo flex">
